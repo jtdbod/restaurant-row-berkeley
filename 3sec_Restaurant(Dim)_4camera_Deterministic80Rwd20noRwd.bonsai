@@ -1341,7 +1341,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:VideoWriter">
-          <cv:FileName>rr_video\R2_cam_</cv:FileName>
+          <cv:FileName>rr_video\R2_cam_.avi</cv:FileName>
           <cv:Suffix>Timestamp</cv:Suffix>
           <cv:Buffered>true</cv:Buffered>
           <cv:Overwrite>false</cv:Overwrite>
@@ -2159,7 +2159,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:VideoWriter">
-          <cv:FileName>rr_video\R3_cam_</cv:FileName>
+          <cv:FileName>rr_video\R3_cam_.avi</cv:FileName>
           <cv:Suffix>Timestamp</cv:Suffix>
           <cv:Buffered>true</cv:Buffered>
           <cv:Overwrite>false</cv:Overwrite>
@@ -2755,7 +2755,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:VideoWriter">
-          <cv:FileName>rr_video\R4_cam_</cv:FileName>
+          <cv:FileName>rr_video\R4_cam_.avi</cv:FileName>
           <cv:Suffix>Timestamp</cv:Suffix>
           <cv:Buffered>true</cv:Buffered>
           <cv:Overwrite>false</cv:Overwrite>
@@ -3449,7 +3449,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:VideoWriter">
-          <cv:FileName>rr_video\R1_cam_</cv:FileName>
+          <cv:FileName>rr_video\R1_cam_.avi</cv:FileName>
           <cv:Suffix>Timestamp</cv:Suffix>
           <cv:Buffered>true</cv:Buffered>
           <cv:Overwrite>true</cv:Overwrite>
