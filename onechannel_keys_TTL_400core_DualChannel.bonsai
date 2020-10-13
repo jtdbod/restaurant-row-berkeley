@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.5.0"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:p1="clr-namespace:Bonsai.PointGrey;assembly=Bonsai.PointGrey"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns:p2="clr-namespace:Bonsai.NationalInstruments;assembly=Bonsai.NationalInstruments"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:FlyCapture">
+          <p1:Index>0</p1:Index>
+          <p1:ColorProcessing>Default</p1:ColorProcessing>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Image</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timestamp" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:CropPolygon">
+          <cv:Regions>
+            <cv:ArrayOfPoint>
+              <cv:Point>
+                <cv:X>1480</cv:X>
+                <cv:Y>773</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1471</cv:X>
+                <cv:Y>717</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1494</cv:X>
+                <cv:Y>672</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1544</cv:X>
+                <cv:Y>647</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1593</cv:X>
+                <cv:Y>651</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1630</cv:X>
+                <cv:Y>677</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1653</cv:X>
+                <cv:Y>719</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1643</cv:X>
+                <cv:Y>759</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1622</cv:X>
+                <cv:Y>796</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1581</cv:X>
+                <cv:Y>815</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1523</cv:X>
+                <cv:Y>804</cv:Y>
+              </cv:Point>
+            </cv:ArrayOfPoint>
+          </cv:Regions>
+          <cv:MaskType>ToZero</cv:MaskType>
+          <cv:FillValue>
+            <cv:Val0>0</cv:Val0>
+            <cv:Val1>0</cv:Val1>
+            <cv:Val2>0</cv:Val2>
+            <cv:Val3>0</cv:Val3>
+          </cv:FillValue>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Average" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Val0</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="io:CsvWriter">
+        <io:FileName>rr_testdata\test_FP_green_.csv</io:FileName>
+        <io:Append>false</io:Append>
+        <io:Overwrite>false</io:Overwrite>
+        <io:Suffix>Timestamp</io:Suffix>
+        <io:IncludeHeader>false</io:IncludeHeader>
+        <io:CompatibilityMode>true</io:CompatibilityMode>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Image</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timestamp" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:CropPolygon">
+          <cv:Regions>
+            <cv:ArrayOfPoint>
+              <cv:Point>
+                <cv:X>1318</cv:X>
+                <cv:Y>894</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1294</cv:X>
+                <cv:Y>874</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1285</cv:X>
+                <cv:Y>847</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1281</cv:X>
+                <cv:Y>825</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1284</cv:X>
+                <cv:Y>800</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1297</cv:X>
+                <cv:Y>769</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1324</cv:X>
+                <cv:Y>748</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1356</cv:X>
+                <cv:Y>728</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1385</cv:X>
+                <cv:Y>724</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1426</cv:X>
+                <cv:Y>731</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1450</cv:X>
+                <cv:Y>745</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1473</cv:X>
+                <cv:Y>767</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1486</cv:X>
+                <cv:Y>794</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1490</cv:X>
+                <cv:Y>829</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1483</cv:X>
+                <cv:Y>860</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1465</cv:X>
+                <cv:Y>882</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1442</cv:X>
+                <cv:Y>903</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1418</cv:X>
+                <cv:Y>914</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1398</cv:X>
+                <cv:Y>917</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1372</cv:X>
+                <cv:Y>920</cv:Y>
+              </cv:Point>
+              <cv:Point>
+                <cv:X>1344</cv:X>
+                <cv:Y>910</cv:Y>
+              </cv:Point>
+            </cv:ArrayOfPoint>
+          </cv:Regions>
+          <cv:MaskType>ToZero</cv:MaskType>
+          <cv:FillValue>
+            <cv:Val0>0</cv:Val0>
+            <cv:Val1>0</cv:Val1>
+            <cv:Val2>0</cv:Val2>
+            <cv:Val3>0</cv:Val3>
+          </cv:FillValue>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Average" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Val0</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="io:CsvWriter">
+        <io:FileName>rr_testdata\test_FP_red_.csv</io:FileName>
+        <io:Append>false</io:Append>
+        <io:Overwrite>false</io:Overwrite>
+        <io:Suffix>Timestamp</io:Suffix>
+        <io:IncludeHeader>false</io:IncludeHeader>
+        <io:CompatibilityMode>true</io:CompatibilityMode>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Metadata.embeddedFrameCounter</Selector>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Metadata.embeddedTimeStamp</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="io:CsvWriter">
+        <io:Append>false</io:Append>
+        <io:Overwrite>false</io:Overwrite>
+        <io:Suffix>None</io:Suffix>
+        <io:IncludeHeader>false</io:IncludeHeader>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>None</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timestamp" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="io:CsvWriter">
+        <io:FileName>rr_testdata\test_FP_keystrokes_.csv</io:FileName>
+        <io:Append>false</io:Append>
+        <io:Overwrite>false</io:Overwrite>
+        <io:Suffix>Timestamp</io:Suffix>
+        <io:IncludeHeader>false</io:IncludeHeader>
+        <io:CompatibilityMode>true</io:CompatibilityMode>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p2:AnalogInput">
+          <p2:SignalSource />
+          <p2:SampleRate>0</p2:SampleRate>
+          <p2:ActiveEdge>Rising</p2:ActiveEdge>
+          <p2:QuantityMode>ContinuousSamples</p2:QuantityMode>
+          <p2:BufferSize>1000</p2:BufferSize>
+          <p2:SamplesPerRead>-1</p2:SamplesPerRead>
+          <p2:Channels />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:MatrixWriter">
+          <dsp:Path>rr_testdata\test_FP_NIDAQ_Ai0_Binary_Matrix</dsp:Path>
+          <dsp:Suffix>Timestamp</dsp:Suffix>
+          <dsp:Overwrite>false</dsp:Overwrite>
+          <dsp:Layout>ColumnMajor</dsp:Layout>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timestamp" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+      </Expression>
+      <Expression xsi:type="io:CsvWriter">
+        <io:FileName>rr_testdata\test_FP_NIDAQ_Ai0_timestamp.csv</io:FileName>
+        <io:Append>false</io:Append>
+        <io:Overwrite>false</io:Overwrite>
+        <io:Suffix>Timestamp</io:Suffix>
+        <io:IncludeHeader>false</io:IncludeHeader>
+        <io:CompatibilityMode>true</io:CompatibilityMode>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="0" To="9" Label="Source1" />
+      <Edge From="0" To="17" Label="Source1" />
+      <Edge From="0" To="18" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="1" To="4" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="7" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="6" To="7" Label="Source2" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="9" To="12" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="15" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="14" To="15" Label="Source2" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="17" To="19" Label="Source1" />
+      <Edge From="18" To="19" Label="Source2" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="21" To="24" Label="Source2" />
+      <Edge From="22" To="23" Label="Source1" />
+      <Edge From="23" To="24" Label="Source1" />
+      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="26" To="28" Label="Source1" />
+      <Edge From="28" To="29" Label="Source1" />
+      <Edge From="29" To="30" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

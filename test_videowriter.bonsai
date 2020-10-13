@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.5.0"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:vid="clr-namespace:Bonsai.Video;assembly=Bonsai.Video"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="vid:VideoCaptureDevice">
+          <vid:Index>0</vid:Index>
+          <vid:CaptureProperties />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>ImageData</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:VideoWriter">
+          <cv:FileName>rr_video\Zone1.mp4</cv:FileName>
+          <cv:Suffix>Timestamp</cv:Suffix>
+          <cv:Buffered>true</cv:Buffered>
+          <cv:Overwrite>true</cv:Overwrite>
+          <cv:FourCC>FMP4</cv:FourCC>
+          <cv:FrameRate>30</cv:FrameRate>
+          <cv:FrameSize>
+            <cv:Width>0</cv:Width>
+            <cv:Height>0</cv:Height>
+          </cv:FrameSize>
+          <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Depth</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:FileCapture">
+          <cv:FileName>D:\video_example\D1-27H_LT_20200625_RH_ProbSwitch_p206.avi</cv:FileName>
+          <cv:PlaybackRate>0</cv:PlaybackRate>
+          <cv:StartPosition>0</cv:StartPosition>
+          <cv:PositionUnits>Frames</cv:PositionUnits>
+          <cv:Loop>false</cv:Loop>
+          <cv:Playing>true</cv:Playing>
+        </Combinator>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="0" To="2" Label="Source1" />
+      <Edge From="0" To="3" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

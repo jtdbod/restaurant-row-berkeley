@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.5.0"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:p1="clr-namespace:Bonsai.PointGrey;assembly=Bonsai.PointGrey"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns:mx="clr-namespace:Bonsai.DAQmx;assembly=Bonsai.DAQmx"
+                 xmlns:npm="clr-namespace:Neurophotometrics;assembly=Neurophotometrics"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="p1:FlyCapture">
+            <p1:Index>0</p1:Index>
+            <p1:ColorProcessing>Default</p1:ColorProcessing>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Image</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Timestamp" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="cv:CropPolygon">
+            <cv:Regions>
+              <cv:ArrayOfPoint>
+                <cv:Point>
+                  <cv:X>1422</cv:X>
+                  <cv:Y>678</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1397</cv:X>
+                  <cv:Y>665</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1378</cv:X>
+                  <cv:Y>645</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1370</cv:X>
+                  <cv:Y>611</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1370</cv:X>
+                  <cv:Y>582</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1379</cv:X>
+                  <cv:Y>551</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1394</cv:X>
+                  <cv:Y>539</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1413</cv:X>
+                  <cv:Y>521</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1435</cv:X>
+                  <cv:Y>510</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1458</cv:X>
+                  <cv:Y>505</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1485</cv:X>
+                  <cv:Y>505</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1513</cv:X>
+                  <cv:Y>513</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1540</cv:X>
+                  <cv:Y>532</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1558</cv:X>
+                  <cv:Y>551</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1570</cv:X>
+                  <cv:Y>581</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1572</cv:X>
+                  <cv:Y>612</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1562</cv:X>
+                  <cv:Y>638</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1545</cv:X>
+                  <cv:Y>661</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1524</cv:X>
+                  <cv:Y>678</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1502</cv:X>
+                  <cv:Y>685</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1478</cv:X>
+                  <cv:Y>690</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1449</cv:X>
+                  <cv:Y>690</cv:Y>
+                </cv:Point>
+              </cv:ArrayOfPoint>
+            </cv:Regions>
+            <cv:MaskType>ToZero</cv:MaskType>
+            <cv:FillValue>
+              <cv:Val0>0</cv:Val0>
+              <cv:Val1>0</cv:Val1>
+              <cv:Val2>0</cv:Val2>
+              <cv:Val3>0</cv:Val3>
+            </cv:FillValue>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="dsp:Average" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Val0</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Zip" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>testing\TEMPLATE_LH_GREEN_.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+          <io:CompatibilityMode>true</io:CompatibilityMode>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="cv:CropPolygon">
+            <cv:Regions>
+              <cv:ArrayOfPoint>
+                <cv:Point>
+                  <cv:X>1679</cv:X>
+                  <cv:Y>757</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1656</cv:X>
+                  <cv:Y>749</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1641</cv:X>
+                  <cv:Y>739</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1628</cv:X>
+                  <cv:Y>725</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1618</cv:X>
+                  <cv:Y>708</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1614</cv:X>
+                  <cv:Y>682</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1615</cv:X>
+                  <cv:Y>654</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1628</cv:X>
+                  <cv:Y>635</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1645</cv:X>
+                  <cv:Y>615</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1672</cv:X>
+                  <cv:Y>598</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1701</cv:X>
+                  <cv:Y>586</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1725</cv:X>
+                  <cv:Y>587</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1753</cv:X>
+                  <cv:Y>594</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1779</cv:X>
+                  <cv:Y>608</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1799</cv:X>
+                  <cv:Y>630</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1807</cv:X>
+                  <cv:Y>656</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1804</cv:X>
+                  <cv:Y>687</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1795</cv:X>
+                  <cv:Y>711</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1781</cv:X>
+                  <cv:Y>729</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1769</cv:X>
+                  <cv:Y>742</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1744</cv:X>
+                  <cv:Y>757</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1723</cv:X>
+                  <cv:Y>758</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>1697</cv:X>
+                  <cv:Y>760</cv:Y>
+                </cv:Point>
+              </cv:ArrayOfPoint>
+            </cv:Regions>
+            <cv:MaskType>ToZero</cv:MaskType>
+            <cv:FillValue>
+              <cv:Val0>0</cv:Val0>
+              <cv:Val1>0</cv:Val1>
+              <cv:Val2>0</cv:Val2>
+              <cv:Val3>0</cv:Val3>
+            </cv:FillValue>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="dsp:Average" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Val0</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Zip" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>testing\TEMPLATE_RH_GREEN_.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+          <io:CompatibilityMode>true</io:CompatibilityMode>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="cv:CropPolygon">
+            <cv:Regions>
+              <cv:ArrayOfPoint>
+                <cv:Point>
+                  <cv:X>480</cv:X>
+                  <cv:Y>670</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>451</cv:X>
+                  <cv:Y>656</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>429</cv:X>
+                  <cv:Y>639</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>408</cv:X>
+                  <cv:Y>607</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>407</cv:X>
+                  <cv:Y>579</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>416</cv:X>
+                  <cv:Y>549</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>430</cv:X>
+                  <cv:Y>529</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>456</cv:X>
+                  <cv:Y>508</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>482</cv:X>
+                  <cv:Y>494</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>508</cv:X>
+                  <cv:Y>489</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>532</cv:X>
+                  <cv:Y>490</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>559</cv:X>
+                  <cv:Y>498</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>579</cv:X>
+                  <cv:Y>513</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>599</cv:X>
+                  <cv:Y>532</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>610</cv:X>
+                  <cv:Y>555</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>611</cv:X>
+                  <cv:Y>594</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>605</cv:X>
+                  <cv:Y>614</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>596</cv:X>
+                  <cv:Y>632</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>580</cv:X>
+                  <cv:Y>652</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>559</cv:X>
+                  <cv:Y>666</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>531</cv:X>
+                  <cv:Y>676</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>510</cv:X>
+                  <cv:Y>679</cv:Y>
+                </cv:Point>
+              </cv:ArrayOfPoint>
+            </cv:Regions>
+            <cv:MaskType>ToZero</cv:MaskType>
+            <cv:FillValue>
+              <cv:Val0>0</cv:Val0>
+              <cv:Val1>0</cv:Val1>
+              <cv:Val2>0</cv:Val2>
+              <cv:Val3>0</cv:Val3>
+            </cv:FillValue>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="dsp:Average" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Val0</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Zip" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>testing\TEMPLATE_LH_RED_.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+          <io:CompatibilityMode>true</io:CompatibilityMode>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="cv:CropPolygon">
+            <cv:Regions>
+              <cv:ArrayOfPoint>
+                <cv:Point>
+                  <cv:X>229</cv:X>
+                  <cv:Y>759</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>205</cv:X>
+                  <cv:Y>748</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>189</cv:X>
+                  <cv:Y>731</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>173</cv:X>
+                  <cv:Y>705</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>172</cv:X>
+                  <cv:Y>679</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>174</cv:X>
+                  <cv:Y>661</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>182</cv:X>
+                  <cv:Y>633</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>207</cv:X>
+                  <cv:Y>613</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>233</cv:X>
+                  <cv:Y>600</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>259</cv:X>
+                  <cv:Y>598</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>286</cv:X>
+                  <cv:Y>598</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>313</cv:X>
+                  <cv:Y>607</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>332</cv:X>
+                  <cv:Y>619</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>348</cv:X>
+                  <cv:Y>637</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>362</cv:X>
+                  <cv:Y>657</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>367</cv:X>
+                  <cv:Y>685</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>361</cv:X>
+                  <cv:Y>718</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>347</cv:X>
+                  <cv:Y>742</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>332</cv:X>
+                  <cv:Y>754</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>311</cv:X>
+                  <cv:Y>765</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>285</cv:X>
+                  <cv:Y>773</cv:Y>
+                </cv:Point>
+                <cv:Point>
+                  <cv:X>260</cv:X>
+                  <cv:Y>769</cv:Y>
+                </cv:Point>
+              </cv:ArrayOfPoint>
+            </cv:Regions>
+            <cv:MaskType>ToZero</cv:MaskType>
+            <cv:FillValue>
+              <cv:Val0>0</cv:Val0>
+              <cv:Val1>0</cv:Val1>
+              <cv:Val2>0</cv:Val2>
+              <cv:Val3>0</cv:Val3>
+            </cv:FillValue>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="dsp:Average" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Val0</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Zip" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>testing\TEMPLATE_RH_RED_.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+          <io:CompatibilityMode>true</io:CompatibilityMode>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="wie:KeyDown">
+            <wie:Filter>Down</wie:Filter>
+            <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Timestamp" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Zip" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>testing\TEMPLATE_keystrokes.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+          <io:CompatibilityMode>true</io:CompatibilityMode>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="mx:AnalogInput">
+            <mx:SignalSource />
+            <mx:SampleRate>0</mx:SampleRate>
+            <mx:ActiveEdge>Rising</mx:ActiveEdge>
+            <mx:SampleMode>ContinuousSamples</mx:SampleMode>
+            <mx:BufferSize>1000</mx:BufferSize>
+            <mx:SamplesPerRead>-1</mx:SamplesPerRead>
+            <mx:Channels />
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Timestamp" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>testing\TEMPLATE_NIDAQ_Ai0_timestamp.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+          <io:CompatibilityMode>true</io:CompatibilityMode>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="dsp:MatrixWriter">
+            <dsp:Path>testing\TEMPLATE_NIDAQ_Ai0_Binary_Matrix</dsp:Path>
+            <dsp:Suffix>Timestamp</dsp:Suffix>
+            <dsp:Overwrite>false</dsp:Overwrite>
+            <dsp:Layout>ColumnMajor</dsp:Layout>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:FP3001">
+          <npm:Index>0</npm:Index>
+          <npm:Regions>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>1396.5</npm:X>
+                <npm:Y>863</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>221</npm:Width>
+                <npm:Height>208</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>465.5</npm:X>
+                <npm:Y>732</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>211</npm:Width>
+                <npm:Height>200</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
+          </npm:Regions>
+          <npm:TriggerMode>Trigger2</npm:TriggerMode>
+          <npm:ExposureTime>24</npm:ExposureTime>
+          <npm:AutoCrop>false</npm:AutoCrop>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryWriter">
+          <npm:FileName>rr_data_FP\FPD005_3sec_80Rwd20NoRwd_A2A-16B-2-RV</npm:FileName>
+          <npm:Suffix>Timestamp</npm:Suffix>
+          <npm:Buffered>true</npm:Buffered>
+          <npm:Overwrite>false</npm:Overwrite>
+          <npm:IncludeRegions>false</npm:IncludeRegions>
+          <npm:IncludeChart>false</npm:IncludeChart>
+        </Combinator>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="1" To="4" Label="Source1" />
+      <Edge From="1" To="9" Label="Source1" />
+      <Edge From="1" To="14" Label="Source1" />
+      <Edge From="1" To="19" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="7" Label="Source1" />
+      <Edge From="3" To="12" Label="Source2" />
+      <Edge From="3" To="17" Label="Source2" />
+      <Edge From="3" To="22" Label="Source2" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="6" To="7" Label="Source2" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
+      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="22" To="23" Label="Source1" />
+      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="24" To="27" Label="Source2" />
+      <Edge From="25" To="26" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="27" To="28" Label="Source1" />
+      <Edge From="29" To="30" Label="Source1" />
+      <Edge From="29" To="33" Label="Source1" />
+      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="31" To="32" Label="Source1" />
+      <Edge From="34" To="35" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

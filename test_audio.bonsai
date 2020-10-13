@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.5.0"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:al="clr-namespace:Bonsai.Audio;assembly=Bonsai.Audio"
+                 xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="al:CreateAudioContext">
+          <al:DeviceName>Generic Software on Speakers (High Definition Audio Device)</al:DeviceName>
+          <al:SampleRate>0</al:SampleRate>
+          <al:Refresh>0</al:Refresh>
+          <al:Position>
+            <al:X>0</al:X>
+            <al:Y>0</al:Y>
+            <al:Z>0</al:Z>
+          </al:Position>
+          <al:Velocity>
+            <al:X>0</al:X>
+            <al:Y>0</al:Y>
+            <al:Z>0</al:Z>
+          </al:Velocity>
+          <al:Direction>
+            <al:X>-0</al:X>
+            <al:Y>-0</al:Y>
+            <al:Z>-1</al:Z>
+          </al:Direction>
+          <al:Up>
+            <al:X>0</al:X>
+            <al:Y>1</al:Y>
+            <al:Z>0</al:Z>
+          </al:Up>
+          <al:Gain>1</al:Gain>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="al:AudioResources">
+          <al:Buffers>
+            <al:BufferConfiguration xsi:type="al:SoundBuffer">
+              <al:Name>Offer0</al:Name>
+              <al:FileName>reward_prob_0.wav</al:FileName>
+            </al:BufferConfiguration>
+            <al:BufferConfiguration xsi:type="al:SoundBuffer">
+              <al:Name>Paid</al:Name>
+              <al:FileName>CHIME1.wav</al:FileName>
+            </al:BufferConfiguration>
+            <al:BufferConfiguration xsi:type="al:SoundBuffer">
+              <al:Name>Offer0.2</al:Name>
+              <al:FileName>reward_prob_0.2.wav</al:FileName>
+            </al:BufferConfiguration>
+            <al:BufferConfiguration xsi:type="al:SoundBuffer">
+              <al:Name>Offer0.8</al:Name>
+              <al:FileName>reward_prob_0.8.wav</al:FileName>
+            </al:BufferConfiguration>
+            <al:BufferConfiguration xsi:type="al:SoundBuffer">
+              <al:Name>Offer1</al:Name>
+              <al:FileName>reward_prob_1.wav</al:FileName>
+            </al:BufferConfiguration>
+            <al:BufferConfiguration xsi:type="al:SoundBuffer">
+              <al:Name>Unpaid</al:Name>
+              <al:FileName>eeeooop.wav</al:FileName>
+            </al:BufferConfiguration>
+          </al:Buffers>
+          <al:Sources>
+            <al:SourceConfiguration>
+              <al:Name>Paid</al:Name>
+              <al:BufferName>Paid</al:BufferName>
+              <al:Direction>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Direction>
+              <al:Position>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Position>
+              <al:Velocity>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Velocity>
+              <al:Looping>false</al:Looping>
+              <al:Relative>false</al:Relative>
+              <al:State>Initial</al:State>
+            </al:SourceConfiguration>
+            <al:SourceConfiguration>
+              <al:Name>Offer0</al:Name>
+              <al:BufferName>Offer0</al:BufferName>
+              <al:Direction>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Direction>
+              <al:Position>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Position>
+              <al:Velocity>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Velocity>
+              <al:Looping>false</al:Looping>
+              <al:Relative>false</al:Relative>
+              <al:State>Initial</al:State>
+            </al:SourceConfiguration>
+            <al:SourceConfiguration>
+              <al:Name>Offer0.2</al:Name>
+              <al:BufferName>Offer0.2</al:BufferName>
+              <al:Direction>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Direction>
+              <al:Position>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Position>
+              <al:Velocity>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Velocity>
+              <al:Looping>false</al:Looping>
+              <al:Relative>false</al:Relative>
+              <al:State>Initial</al:State>
+            </al:SourceConfiguration>
+            <al:SourceConfiguration>
+              <al:Name>Offer0.8</al:Name>
+              <al:BufferName>Offer0.8</al:BufferName>
+              <al:Direction>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Direction>
+              <al:Position>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Position>
+              <al:Velocity>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Velocity>
+              <al:Looping>false</al:Looping>
+              <al:Relative>false</al:Relative>
+              <al:State>Initial</al:State>
+            </al:SourceConfiguration>
+            <al:SourceConfiguration>
+              <al:Name>Offer1</al:Name>
+              <al:BufferName>Offer1</al:BufferName>
+              <al:Direction>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Direction>
+              <al:Position>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Position>
+              <al:Velocity>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Velocity>
+              <al:Looping>false</al:Looping>
+              <al:Relative>false</al:Relative>
+              <al:State>Initial</al:State>
+            </al:SourceConfiguration>
+            <al:SourceConfiguration>
+              <al:Name>Unpaid</al:Name>
+              <al:BufferName>Unpaid</al:BufferName>
+              <al:Direction>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Direction>
+              <al:Position>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Position>
+              <al:Velocity>
+                <al:X>0</al:X>
+                <al:Y>0</al:Y>
+                <al:Z>0</al:Z>
+              </al:Velocity>
+              <al:Looping>false</al:Looping>
+              <al:Relative>false</al:Relative>
+              <al:State>Initial</al:State>
+            </al:SourceConfiguration>
+          </al:Sources>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="res:LoadResources" />
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="SubscribeSubject">
+          <Name>Probability4</Name>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Condition">
+          <Name>P = 0.2?</Name>
+          <Workflow>
+            <Nodes>
+              <Expression xsi:type="WorkflowInput">
+                <Name>Source1</Name>
+              </Expression>
+              <Expression xsi:type="MemberSelector">
+                <Selector>Item2</Selector>
+              </Expression>
+              <Expression xsi:type="Equal">
+                <Operand xsi:type="DoubleProperty">
+                  <Value>0.2</Value>
+                </Operand>
+              </Expression>
+              <Expression xsi:type="WorkflowOutput" />
+            </Nodes>
+            <Edges>
+              <Edge From="0" To="1" Label="Source1" />
+              <Edge From="1" To="2" Label="Source1" />
+              <Edge From="2" To="3" Label="Source1" />
+            </Edges>
+          </Workflow>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="al:PlaySource">
+            <al:SourceName>
+              <al:string>Offer0.2</al:string>
+            </al:SourceName>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>D0</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="IntProperty">
+          <Value>0</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Condition">
+        <Name>P = 0?</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="Equal">
+              <Operand xsi:type="DoubleProperty">
+                <Value>0</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="al:PlaySource">
+          <al:SourceName>
+            <al:string>Offer0</al:string>
+          </al:SourceName>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>D8</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="IntProperty">
+          <Value>8</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Condition">
+        <Name>P = 0.8?</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="Equal">
+              <Operand xsi:type="DoubleProperty">
+                <Value>8</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="al:PlaySource">
+          <al:SourceName>
+            <al:string>Offer0.8</al:string>
+          </al:SourceName>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>D1</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="IntProperty">
+          <Value>1</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Condition">
+        <Name>P = 1?</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="Equal">
+              <Operand xsi:type="DoubleProperty">
+                <Value>1</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="al:PlaySource">
+          <al:SourceName>
+            <al:string>Offer1</al:string>
+          </al:SourceName>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="scr:PythonTransform">
+          <scr:Name>Select Probability</scr:Name>
+          <scr:Script>import random, time
+
+@returns(float)
+def process(value):
+  time.sleep(0.03)
+  if value:
+    return 1</scr:Script>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="PublishSubject">
+          <Name>Probability4</Name>
+        </Builder>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>
