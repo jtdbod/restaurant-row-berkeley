@@ -6288,64 +6288,46 @@ def process(value):
       <Expression xsi:type="PublishSubject">
         <Name>Decision4</Name>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="ard:DigitalInput">
-            <ard:PortName>Pellet Dispenser</ard:PortName>
-            <ard:Pin>11</ard:Pin>
-          </Combinator>
-        </Builder>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="ard:DigitalInput">
+          <ard:PortName>Pellet Dispenser</ard:PortName>
+          <ard:Pin>11</ard:Pin>
+        </Combinator>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Condition">
-          <Name>Filter True</Name>
-          <Workflow>
-            <Nodes>
-              <Expression xsi:type="WorkflowInput">
-                <Name>Source1</Name>
-              </Expression>
-              <Expression xsi:type="WorkflowOutput" />
-            </Nodes>
-            <Edges>
-              <Edge From="0" To="1" Label="Source1" />
-            </Edges>
-          </Workflow>
-        </Builder>
+      <Expression xsi:type="Condition">
+        <Name>Filter True</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+          </Edges>
+        </Workflow>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="IntProperty">
-            <Value>1</Value>
-          </Combinator>
-        </Builder>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="IntProperty">
+          <Value>1</Value>
+        </Combinator>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="rx:Accumulate" />
+      <Expression xsi:type="rx:Accumulate" />
+      <Expression xsi:type="PublishSubject">
+        <Name>CountRwdR1</Name>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="PublishSubject">
-          <Name>CountRwdR1</Name>
-        </Builder>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timestamp" />
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:Timestamp" />
-        </Builder>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="MemberSelector">
-          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
-        </Builder>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>16</scr:Expression>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="scr:ExpressionTransform">
-          <scr:Expression>16</scr:Expression>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:Zip" />
-        </Builder>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="ard:DigitalInput">
@@ -6484,256 +6466,246 @@ def process(value):
               <Name>Restaurant 1 Timestamps</Name>
               <Workflow>
                 <Nodes>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="NestedWorkflow">
-                      <Name>Entry into Offer Zone 1 Timestamp</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Entry1</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:DistinctUntilChanged" />
-                          </Expression>
-                          <Expression xsi:type="Condition">
-                            <Name>Entry into Hall 1</Name>
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="WorkflowInput">
-                                  <Name>Source1</Name>
-                                </Expression>
-                                <Expression xsi:type="WorkflowOutput" />
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="IntProperty">
-                              <Value>10</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Timestamp" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="1" To="2" Label="Source1" />
-                          <Edge From="2" To="3" Label="Source1" />
-                          <Edge From="3" To="4" Label="Source1" />
-                          <Edge From="3" To="6" Label="Source2" />
-                          <Edge From="4" To="5" Label="Source1" />
-                          <Edge From="5" To="6" Label="Source1" />
-                          <Edge From="6" To="7" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
+                  <Expression xsi:type="NestedWorkflow">
+                    <Name>Entry into Offer Zone 1 Timestamp</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Entry1</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:DistinctUntilChanged" />
+                        </Expression>
+                        <Expression xsi:type="Condition">
+                          <Name>Entry into Hall 1</Name>
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="1" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>10</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Timestamp" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="6" Label="Source2" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="NestedWorkflow">
-                      <Name>Accept Restaurant 1 Timestamp</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Accept1</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:DistinctUntilChanged" />
-                          </Expression>
-                          <Expression xsi:type="Condition">
-                            <Name>Entry into Reward Zone 1</Name>
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="WorkflowInput">
-                                  <Name>Source1</Name>
-                                </Expression>
-                                <Expression xsi:type="WorkflowOutput" />
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="IntProperty">
-                              <Value>11</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Timestamp" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="1" To="2" Label="Source1" />
-                          <Edge From="2" To="3" Label="Source1" />
-                          <Edge From="3" To="4" Label="Source1" />
-                          <Edge From="3" To="6" Label="Source2" />
-                          <Edge From="4" To="5" Label="Source1" />
-                          <Edge From="5" To="6" Label="Source1" />
-                          <Edge From="6" To="7" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
+                  <Expression xsi:type="NestedWorkflow">
+                    <Name>Accept Restaurant 1 Timestamp</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Accept1</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:DistinctUntilChanged" />
+                        </Expression>
+                        <Expression xsi:type="Condition">
+                          <Name>Entry into Reward Zone 1</Name>
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="1" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>11</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Timestamp" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="6" Label="Source2" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="NestedWorkflow">
-                      <Name>Quit Restaurant 1 Timestamp</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>QuitOffer1</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="IntProperty">
-                              <Value>13</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Timestamp" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="1" To="2" Label="Source1" />
-                          <Edge From="1" To="4" Label="Source2" />
-                          <Edge From="2" To="3" Label="Source1" />
-                          <Edge From="3" To="4" Label="Source1" />
-                          <Edge From="4" To="5" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
+                  <Expression xsi:type="NestedWorkflow">
+                    <Name>Quit Restaurant 1 Timestamp</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>QuitOffer1</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>13</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Timestamp" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="1" To="4" Label="Source2" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="NestedWorkflow">
-                      <Name>Reject Restaurant 1 Timestamp</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>RejectOffer1</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:DistinctUntilChanged" />
-                          </Expression>
-                          <Expression xsi:type="Condition">
-                            <Name>Exit from Offer Zone 1</Name>
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="WorkflowInput">
-                                  <Name>Source1</Name>
-                                </Expression>
-                                <Expression xsi:type="WorkflowOutput" />
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="IntProperty">
-                              <Value>12</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Timestamp" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="1" To="2" Label="Source1" />
-                          <Edge From="2" To="3" Label="Source1" />
-                          <Edge From="3" To="4" Label="Source1" />
-                          <Edge From="3" To="6" Label="Source2" />
-                          <Edge From="4" To="5" Label="Source1" />
-                          <Edge From="5" To="6" Label="Source1" />
-                          <Edge From="6" To="7" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
+                  <Expression xsi:type="NestedWorkflow">
+                    <Name>Reject Restaurant 1 Timestamp</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>RejectOffer1</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:DistinctUntilChanged" />
+                        </Expression>
+                        <Expression xsi:type="Condition">
+                          <Name>Exit from Offer Zone 1</Name>
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="1" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>12</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Timestamp" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="6" Label="Source2" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="NestedWorkflow">
-                      <Name>Entry into Hall 1 Timestamp</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>EntryHall1</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:DistinctUntilChanged" />
-                          </Expression>
-                          <Expression xsi:type="Condition">
-                            <Name>Entry into Hall 1</Name>
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="WorkflowInput">
-                                  <Name>Source1</Name>
-                                </Expression>
-                                <Expression xsi:type="WorkflowOutput" />
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="IntProperty">
-                              <Value>9</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Timestamp" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="1" To="2" Label="Source1" />
-                          <Edge From="2" To="3" Label="Source1" />
-                          <Edge From="3" To="4" Label="Source1" />
-                          <Edge From="3" To="6" Label="Source2" />
-                          <Edge From="4" To="5" Label="Source1" />
-                          <Edge From="5" To="6" Label="Source1" />
-                          <Edge From="6" To="7" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
+                  <Expression xsi:type="NestedWorkflow">
+                    <Name>Entry into Hall 1 Timestamp</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>EntryHall1</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:DistinctUntilChanged" />
+                        </Expression>
+                        <Expression xsi:type="Condition">
+                          <Name>Entry into Hall 1</Name>
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="1" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>9</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Timestamp" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="6" Label="Source2" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
                   <Expression xsi:type="NestedWorkflow">
                     <Name>Restaurant 1 Offer Tones Timestamp</Name>
@@ -6916,196 +6888,190 @@ def process(value):
                       </Edges>
                     </Workflow>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="NestedWorkflow">
-                      <Name>Restaurant 1 Reward-No-Reward Tone Timestamp</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>RewardYield1</Name>
-                          </Expression>
-                          <Expression xsi:type="Condition">
-                            <Name>Reward Tone Played?</Name>
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="WorkflowInput">
-                                  <Name>Source1</Name>
-                                </Expression>
-                                <Expression xsi:type="WorkflowOutput" />
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="IntProperty">
-                              <Value>14</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Timestamp" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="Condition">
-                            <Name>Reward Omission Tone Played?</Name>
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="WorkflowInput">
-                                  <Name>Source1</Name>
-                                </Expression>
-                                <Expression xsi:type="BitwiseNot" />
-                                <Expression xsi:type="WorkflowOutput" />
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                                <Edge From="1" To="2" Label="Source1" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="IntProperty">
-                              <Value>15</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Timestamp" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Merge" />
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="0" To="6" Label="Source1" />
-                          <Edge From="1" To="2" Label="Source1" />
-                          <Edge From="2" To="3" Label="Source1" />
-                          <Edge From="2" To="5" Label="Source2" />
-                          <Edge From="3" To="4" Label="Source1" />
-                          <Edge From="4" To="5" Label="Source1" />
-                          <Edge From="5" To="11" Label="Source1" />
-                          <Edge From="6" To="7" Label="Source1" />
-                          <Edge From="7" To="8" Label="Source1" />
-                          <Edge From="7" To="10" Label="Source2" />
-                          <Edge From="8" To="9" Label="Source1" />
-                          <Edge From="9" To="10" Label="Source1" />
-                          <Edge From="10" To="11" Label="Source2" />
-                          <Edge From="11" To="12" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
+                  <Expression xsi:type="NestedWorkflow">
+                    <Name>Restaurant 1 Reward-No-Reward Tone Timestamp</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>RewardYield1</Name>
+                        </Expression>
+                        <Expression xsi:type="Condition">
+                          <Name>Reward Tone Played?</Name>
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="1" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>14</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Timestamp" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="Condition">
+                          <Name>Reward Omission Tone Played?</Name>
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="BitwiseNot" />
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="1" Label="Source1" />
+                              <Edge From="1" To="2" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>15</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Timestamp" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Merge" />
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="0" To="6" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="2" To="5" Label="Source2" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="11" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="7" To="8" Label="Source1" />
+                        <Edge From="7" To="10" Label="Source2" />
+                        <Edge From="8" To="9" Label="Source1" />
+                        <Edge From="9" To="10" Label="Source1" />
+                        <Edge From="10" To="11" Label="Source2" />
+                        <Edge From="11" To="12" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="NestedWorkflow">
-                      <Name>SHARP Entry into R1 T-Junction</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>R1_TS_Entry</Name>
-                          </Expression>
-                          <Expression xsi:type="Condition">
-                            <Name>Filter True</Name>
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="WorkflowInput">
-                                  <Name>Source1</Name>
-                                </Expression>
-                                <Expression xsi:type="WorkflowOutput" />
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="IntProperty">
-                              <Value>61</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Timestamp" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="1" To="2" Label="Source1" />
-                          <Edge From="2" To="3" Label="Source1" />
-                          <Edge From="2" To="5" Label="Source2" />
-                          <Edge From="3" To="4" Label="Source1" />
-                          <Edge From="4" To="5" Label="Source1" />
-                          <Edge From="5" To="6" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
+                  <Expression xsi:type="NestedWorkflow">
+                    <Name>SHARP Entry into R1 T-Junction</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>R1_TS_Entry</Name>
+                        </Expression>
+                        <Expression xsi:type="Condition">
+                          <Name>Filter True</Name>
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="1" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>61</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Timestamp" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="2" To="5" Label="Source2" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="NestedWorkflow">
-                      <Name>SHARP Accept Restaraunt 1</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>R1_TS_Accept</Name>
-                          </Expression>
-                          <Expression xsi:type="Condition">
-                            <Name>Filter True</Name>
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="WorkflowInput">
-                                  <Name>Source1</Name>
-                                </Expression>
-                                <Expression xsi:type="WorkflowOutput" />
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="IntProperty">
-                              <Value>62</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Timestamp" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="1" To="2" Label="Source1" />
-                          <Edge From="2" To="3" Label="Source1" />
-                          <Edge From="2" To="5" Label="Source2" />
-                          <Edge From="3" To="4" Label="Source1" />
-                          <Edge From="4" To="5" Label="Source1" />
-                          <Edge From="5" To="6" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
+                  <Expression xsi:type="NestedWorkflow">
+                    <Name>SHARP Accept Restaraunt 1</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>R1_TS_Accept</Name>
+                        </Expression>
+                        <Expression xsi:type="Condition">
+                          <Name>Filter True</Name>
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="1" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>62</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Timestamp" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="2" To="5" Label="Source2" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
                   <Expression xsi:type="NestedWorkflow">
                     <Name>SHARP Exit Restaraunt 1</Name>
