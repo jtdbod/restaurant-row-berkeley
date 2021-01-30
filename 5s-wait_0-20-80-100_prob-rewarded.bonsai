@@ -4029,7 +4029,7 @@ def process(value):
 @returns(float)
 def process(value):
   if value:
-    return random.choice([0, 1, 1, 1, 1])</scr:Script>
+    return random.choice([0, 0.2, .8, 1])</scr:Script>
       </Expression>
       <Expression xsi:type="PublishSubject">
         <Name>Probability1</Name>
@@ -4082,7 +4082,7 @@ def process(value):
 @returns(float)
 def process(value):
   if value:
-    return random.choice([0, 1, 1, 1, 1])</scr:Script>
+    return random.choice([0, 0.2, .8, 1])</scr:Script>
       </Expression>
       <Expression xsi:type="PublishSubject">
         <Name>Probability2</Name>
@@ -4135,7 +4135,7 @@ def process(value):
 @returns(float)
 def process(value):
   if value:
-    return random.choice([0, 1, 1, 1, 1])</scr:Script>
+    return random.choice([0, 0.2, .8, 1])</scr:Script>
       </Expression>
       <Expression xsi:type="PublishSubject">
         <Name>Probability3</Name>
@@ -4188,7 +4188,7 @@ def process(value):
 @returns(float)
 def process(value):
   if value:
-    return random.choice([0, 1, 1, 1, 1])</scr:Script>
+    return random.choice([0, 0.2, .8, 1])</scr:Script>
       </Expression>
       <Expression xsi:type="PublishSubject">
         <Name>Probability4</Name>
@@ -4446,7 +4446,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -4968,7 +4968,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -5491,7 +5491,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -6014,7 +6014,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -10117,7 +10117,7 @@ def process(value):
               <Combinator xsi:type="rx:Merge" />
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>rr_data\RR_TESTING_.csv</io:FileName>
+              <io:FileName>rr_data\RR_Dayp280_epoch-7_ID-A2A18DRV.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -10136,25 +10136,112 @@ def process(value):
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:FP3001">
+            <npm:Index>0</npm:Index>
+            <npm:Regions>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>510.5</npm:X>
+                  <npm:Y>623</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>211</npm:Width>
+                  <npm:Height>202</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>268.5</npm:X>
+                  <npm:Y>761</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>211</npm:Width>
+                  <npm:Height>200</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>1483.5</npm:X>
+                  <npm:Y>645.5</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>191</npm:Width>
+                  <npm:Height>181</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>1716</npm:X>
+                  <npm:Y>745.5</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>190</npm:Width>
+                  <npm:Height>181</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+            </npm:Regions>
+            <npm:TriggerMode>Trigger2</npm:TriggerMode>
+            <npm:ExposureTime>15.998</npm:ExposureTime>
+            <npm:AutoCrop>true</npm:AutoCrop>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FP_Dayp259_epoch-7_ID-A2A18DRV_.csv</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Timestamp" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>rr_data_FP\FPTS_Dayp259_epoch-7_ID-A2A18DRV_.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+        </Builder>
+      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="npm:FP3001">
           <npm:Index>0</npm:Index>
           <npm:Regions>
             <npm:RotatedRect>
               <npm:Center>
-                <npm:X>1396.5</npm:X>
-                <npm:Y>863</npm:Y>
+                <npm:X>510.5</npm:X>
+                <npm:Y>623</npm:Y>
               </npm:Center>
               <npm:Size>
-                <npm:Width>221</npm:Width>
-                <npm:Height>208</npm:Height>
+                <npm:Width>211</npm:Width>
+                <npm:Height>202</npm:Height>
               </npm:Size>
               <npm:Angle>0</npm:Angle>
             </npm:RotatedRect>
             <npm:RotatedRect>
               <npm:Center>
-                <npm:X>465.5</npm:X>
-                <npm:Y>732</npm:Y>
+                <npm:X>282.5</npm:X>
+                <npm:Y>755</npm:Y>
               </npm:Center>
               <npm:Size>
                 <npm:Width>211</npm:Width>
@@ -10162,15 +10249,37 @@ def process(value):
               </npm:Size>
               <npm:Angle>0</npm:Angle>
             </npm:RotatedRect>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>1483.5</npm:X>
+                <npm:Y>645.5</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>191</npm:Width>
+                <npm:Height>181</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>1716</npm:X>
+                <npm:Y>745.5</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>190</npm:Width>
+                <npm:Height>181</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
           </npm:Regions>
-          <npm:TriggerMode>Trigger2</npm:TriggerMode>
+          <npm:TriggerMode>Trigger3</npm:TriggerMode>
           <npm:ExposureTime>15.998</npm:ExposureTime>
           <npm:AutoCrop>true</npm:AutoCrop>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="npm:PhotometryWriter">
-          <npm:FileName>rr_data_FP\FP_Day033_epoch-5_ID-A2A18DRV_FP-LH_.csv</npm:FileName>
+          <npm:FileName>rr_data_FP\FP_Dayp280_epoch-7_ID-A2A18DRV_.csv</npm:FileName>
           <npm:Suffix>Timestamp</npm:Suffix>
           <npm:Buffered>true</npm:Buffered>
           <npm:Overwrite>false</npm:Overwrite>
@@ -10185,7 +10294,7 @@ def process(value):
         <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>rr_data_FP\FPTS_Day033_epoch-5_ID-A2A18DRV_FP-LH_.csv</io:FileName>
+        <io:FileName>rr_data_FP\FPTS_Dayp280_epoch-7_ID-A2A18DRV_.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>Timestamp</io:Suffix>
@@ -10501,6 +10610,10 @@ def process(value):
       <Edge From="301" To="302" Label="Source1" />
       <Edge From="302" To="303" Label="Source1" />
       <Edge From="303" To="304" Label="Source1" />
+      <Edge From="305" To="306" Label="Source1" />
+      <Edge From="306" To="307" Label="Source1" />
+      <Edge From="307" To="308" Label="Source1" />
+      <Edge From="308" To="309" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.5.0"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:npm="clr-namespace:Neurophotometrics;assembly=Neurophotometrics"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:FP3001">
+          <npm:Index>0</npm:Index>
+          <npm:Regions>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>511.5</npm:X>
+                <npm:Y>644</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>211</npm:Width>
+                <npm:Height>202</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>283.5</npm:X>
+                <npm:Y>769</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>211</npm:Width>
+                <npm:Height>200</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>1477.5</npm:X>
+                <npm:Y>651.5</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>191</npm:Width>
+                <npm:Height>181</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>1699</npm:X>
+                <npm:Y>752.5</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>190</npm:Width>
+                <npm:Height>181</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
+          </npm:Regions>
+          <npm:TriggerMode>Trigger2</npm:TriggerMode>
+          <npm:ExposureTime>15.998</npm:ExposureTime>
+          <npm:AutoCrop>true</npm:AutoCrop>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryWriter">
+          <npm:FileName>rr_data_FP\FP_Day033_epoch-5_ID-A2A18DRV_FP-LH_.csv</npm:FileName>
+          <npm:Suffix>Timestamp</npm:Suffix>
+          <npm:Buffered>true</npm:Buffered>
+          <npm:Overwrite>false</npm:Overwrite>
+          <npm:IncludeRegions>false</npm:IncludeRegions>
+          <npm:IncludeChart>false</npm:IncludeChart>
+        </Combinator>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

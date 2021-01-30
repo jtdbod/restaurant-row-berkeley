@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.5.0"
+<WorkflowBuilder Version="2.5.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:al="clr-namespace:Bonsai.Audio;assembly=Bonsai.Audio"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
@@ -2699,20 +2699,20 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
+                      <cv:X>4</cv:X>
+                      <cv:Y>68</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>3</cv:X>
+                      <cv:Y>30</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
                       <cv:X>2</cv:X>
-                      <cv:Y>71</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>1</cv:X>
-                      <cv:Y>32</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>0</cv:X>
                       <cv:Y>11</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>0</cv:X>
-                      <cv:Y>1</cv:Y>
+                      <cv:X>2</cv:X>
+                      <cv:Y>4</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>53</cv:X>
@@ -3986,8 +3986,34 @@ def process(value):
           <Value>1</Value>
         </Operand>
       </Expression>
+      <Expression xsi:type="Condition">
+        <Name>CreateOffer</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
       <Expression xsi:type="PublishSubject">
         <Name>EnterRestaurant1</Name>
+      </Expression>
+      <Expression xsi:type="scr:PythonTransform">
+        <scr:Name>Select Probability</scr:Name>
+        <scr:Script>import random
+
+@returns(float)
+def process(value):
+  if value:
+    return random.choice([0, 0.2, .8, 1])</scr:Script>
+      </Expression>
+      <Expression xsi:type="PublishSubject">
+        <Name>Probability1</Name>
       </Expression>
       <Expression xsi:type="Condition">
         <Name>Reject?</Name>
@@ -4008,6 +4034,11 @@ def process(value):
       <Expression xsi:type="PublishSubject">
         <Name>RejectOffer1</Name>
       </Expression>
+      <Expression xsi:type="Equal">
+        <Operand xsi:type="IntProperty">
+          <Value>2</Value>
+        </Operand>
+      </Expression>
       <Expression xsi:type="Condition">
         <Name>CreateOffer</Name>
         <Workflow>
@@ -4022,6 +4053,9 @@ def process(value):
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="PublishSubject">
+        <Name>EnterRestaurant2</Name>
+      </Expression>
       <Expression xsi:type="scr:PythonTransform">
         <scr:Name>Select Probability</scr:Name>
         <scr:Script>import random
@@ -4029,18 +4063,10 @@ def process(value):
 @returns(float)
 def process(value):
   if value:
-    return random.choice([0, 1, 1, 1, 1])</scr:Script>
+    return random.choice([0, 0.2, .8, 1])</scr:Script>
       </Expression>
       <Expression xsi:type="PublishSubject">
-        <Name>Probability1</Name>
-      </Expression>
-      <Expression xsi:type="Equal">
-        <Operand xsi:type="IntProperty">
-          <Value>2</Value>
-        </Operand>
-      </Expression>
-      <Expression xsi:type="PublishSubject">
-        <Name>EnterRestaurant2</Name>
+        <Name>Probability2</Name>
       </Expression>
       <Expression xsi:type="Condition">
         <Name>Reject?</Name>
@@ -4061,6 +4087,11 @@ def process(value):
       <Expression xsi:type="PublishSubject">
         <Name>RejectOffer2</Name>
       </Expression>
+      <Expression xsi:type="Equal">
+        <Operand xsi:type="IntProperty">
+          <Value>3</Value>
+        </Operand>
+      </Expression>
       <Expression xsi:type="Condition">
         <Name>CreateOffer</Name>
         <Workflow>
@@ -4075,6 +4106,9 @@ def process(value):
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="PublishSubject">
+        <Name>EnterRestaurant3</Name>
+      </Expression>
       <Expression xsi:type="scr:PythonTransform">
         <scr:Name>Select Probability</scr:Name>
         <scr:Script>import random
@@ -4082,18 +4116,10 @@ def process(value):
 @returns(float)
 def process(value):
   if value:
-    return random.choice([0, 1, 1, 1, 1])</scr:Script>
+    return random.choice([0, 0.2, .8, 1])</scr:Script>
       </Expression>
       <Expression xsi:type="PublishSubject">
-        <Name>Probability2</Name>
-      </Expression>
-      <Expression xsi:type="Equal">
-        <Operand xsi:type="IntProperty">
-          <Value>3</Value>
-        </Operand>
-      </Expression>
-      <Expression xsi:type="PublishSubject">
-        <Name>EnterRestaurant3</Name>
+        <Name>Probability3</Name>
       </Expression>
       <Expression xsi:type="Condition">
         <Name>Reject?</Name>
@@ -4114,6 +4140,11 @@ def process(value):
       <Expression xsi:type="PublishSubject">
         <Name>RejectOffer3</Name>
       </Expression>
+      <Expression xsi:type="Equal">
+        <Operand xsi:type="IntProperty">
+          <Value>0</Value>
+        </Operand>
+      </Expression>
       <Expression xsi:type="Condition">
         <Name>CreateOffer</Name>
         <Workflow>
@@ -4128,6 +4159,9 @@ def process(value):
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="PublishSubject">
+        <Name>EnterRestaurant4</Name>
+      </Expression>
       <Expression xsi:type="scr:PythonTransform">
         <scr:Name>Select Probability</scr:Name>
         <scr:Script>import random
@@ -4135,18 +4169,10 @@ def process(value):
 @returns(float)
 def process(value):
   if value:
-    return random.choice([0, 1, 1, 1, 1])</scr:Script>
+    return random.choice([0, 0.2, .8, 1])</scr:Script>
       </Expression>
       <Expression xsi:type="PublishSubject">
-        <Name>Probability3</Name>
-      </Expression>
-      <Expression xsi:type="Equal">
-        <Operand xsi:type="IntProperty">
-          <Value>0</Value>
-        </Operand>
-      </Expression>
-      <Expression xsi:type="PublishSubject">
-        <Name>EnterRestaurant4</Name>
+        <Name>Probability4</Name>
       </Expression>
       <Expression xsi:type="Condition">
         <Name>Reject?</Name>
@@ -4166,32 +4192,6 @@ def process(value):
       </Expression>
       <Expression xsi:type="PublishSubject">
         <Name>RejectOffer4</Name>
-      </Expression>
-      <Expression xsi:type="Condition">
-        <Name>CreateOffer</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="WorkflowInput">
-              <Name>Source1</Name>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="1" Label="Source1" />
-          </Edges>
-        </Workflow>
-      </Expression>
-      <Expression xsi:type="scr:PythonTransform">
-        <scr:Name>Select Probability</scr:Name>
-        <scr:Script>import random
-
-@returns(float)
-def process(value):
-  if value:
-    return random.choice([0, 1, 1, 1, 1])</scr:Script>
-      </Expression>
-      <Expression xsi:type="PublishSubject">
-        <Name>Probability4</Name>
       </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>Probability1</Name>
@@ -4226,139 +4226,6 @@ def process(value):
               <Name>WaitForDecision</Name>
               <Workflow>
                 <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>Probability1</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:CombineLatest" />
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0.2?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0.2</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0.2</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0.8?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0.8</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0.8</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 1?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>1</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer1</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>RejectOffer1</Name>
                   </Expression>
@@ -4396,26 +4263,16 @@ def process(value):
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="2" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source2" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="2" To="5" Label="Source1" />
-                  <Edge From="2" To="7" Label="Source1" />
-                  <Edge From="2" To="9" Label="Source1" />
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="6" Label="Source1" />
                   <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source2" />
+                  <Edge From="6" To="9" Label="Source1" />
                   <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source2" />
                   <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                  <Edge From="13" To="17" Label="Source1" />
-                  <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="15" To="16" Label="Source1" />
-                  <Edge From="16" To="17" Label="Source2" />
-                  <Edge From="17" To="20" Label="Source1" />
-                  <Edge From="18" To="19" Label="Source1" />
-                  <Edge From="19" To="20" Label="Source2" />
-                  <Edge From="20" To="21" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -4446,7 +4303,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT10S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -4757,130 +4614,6 @@ def process(value):
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:CombineLatest" />
                   </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0.2?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0.2</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0.2</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0.8?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0.8</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0.8</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 1?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>1</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer1</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>RejectOffer2</Name>
                   </Expression>
@@ -4920,24 +4653,16 @@ def process(value):
                 <Edges>
                   <Edge From="0" To="2" Label="Source1" />
                   <Edge From="1" To="2" Label="Source2" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="2" To="5" Label="Source1" />
-                  <Edge From="2" To="7" Label="Source1" />
-                  <Edge From="2" To="9" Label="Source1" />
                   <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="5" To="9" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source1" />
                   <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="9" To="12" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source2" />
                   <Edge From="12" To="13" Label="Source1" />
-                  <Edge From="13" To="17" Label="Source1" />
-                  <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="15" To="16" Label="Source1" />
-                  <Edge From="16" To="17" Label="Source2" />
-                  <Edge From="17" To="20" Label="Source1" />
-                  <Edge From="18" To="19" Label="Source1" />
-                  <Edge From="19" To="20" Label="Source2" />
-                  <Edge From="20" To="21" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -4968,7 +4693,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT10S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -5280,130 +5005,6 @@ def process(value):
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:CombineLatest" />
                   </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0.2?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0.2</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0.2</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0.8?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0.8</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0.8</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 1?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>1</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer1</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>RejectOffer3</Name>
                   </Expression>
@@ -5443,24 +5044,16 @@ def process(value):
                 <Edges>
                   <Edge From="0" To="2" Label="Source1" />
                   <Edge From="1" To="2" Label="Source2" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="2" To="5" Label="Source1" />
-                  <Edge From="2" To="7" Label="Source1" />
-                  <Edge From="2" To="9" Label="Source1" />
                   <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="5" To="9" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source1" />
                   <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="9" To="12" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source2" />
                   <Edge From="12" To="13" Label="Source1" />
-                  <Edge From="13" To="17" Label="Source1" />
-                  <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="15" To="16" Label="Source1" />
-                  <Edge From="16" To="17" Label="Source2" />
-                  <Edge From="17" To="20" Label="Source1" />
-                  <Edge From="18" To="19" Label="Source1" />
-                  <Edge From="19" To="20" Label="Source2" />
-                  <Edge From="20" To="21" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -5491,7 +5084,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT10S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -5803,130 +5396,6 @@ def process(value):
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:CombineLatest" />
                   </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0.2?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0.2</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0.2</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 0.8?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>0.8</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer0.8</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Condition">
-                    <Name>P = 1?</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item2</Selector>
-                        </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="DoubleProperty">
-                            <Value>1</Value>
-                          </Operand>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="al:PlaySource">
-                      <al:SourceName>
-                        <al:string>Offer1</al:string>
-                      </al:SourceName>
-                    </Combinator>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>RejectOffer4</Name>
                   </Expression>
@@ -5966,24 +5435,16 @@ def process(value):
                 <Edges>
                   <Edge From="0" To="2" Label="Source1" />
                   <Edge From="1" To="2" Label="Source2" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="2" To="5" Label="Source1" />
-                  <Edge From="2" To="7" Label="Source1" />
-                  <Edge From="2" To="9" Label="Source1" />
                   <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="5" To="9" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source1" />
                   <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="9" To="12" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source2" />
                   <Edge From="12" To="13" Label="Source1" />
-                  <Edge From="13" To="17" Label="Source1" />
-                  <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="15" To="16" Label="Source1" />
-                  <Edge From="16" To="17" Label="Source2" />
-                  <Edge From="17" To="20" Label="Source1" />
-                  <Edge From="18" To="19" Label="Source1" />
-                  <Edge From="19" To="20" Label="Source2" />
-                  <Edge From="20" To="21" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -6014,7 +5475,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT10S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -6731,6 +6192,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>17</Value>
                           </Combinator>
@@ -6763,6 +6231,13 @@ def process(value):
                               <Edge From="1" To="2" Label="Source1" />
                             </Edges>
                           </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0.2</al:string>
+                            </al:SourceName>
+                          </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
@@ -6799,6 +6274,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0.8</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>19</Value>
                           </Combinator>
@@ -6833,6 +6315,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer1</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>20</Value>
                           </Combinator>
@@ -6853,34 +6342,38 @@ def process(value):
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="0" To="6" Label="Source1" />
-                        <Edge From="0" To="11" Label="Source1" />
-                        <Edge From="0" To="16" Label="Source1" />
+                        <Edge From="0" To="7" Label="Source1" />
+                        <Edge From="0" To="13" Label="Source1" />
+                        <Edge From="0" To="19" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="2" To="5" Label="Source2" />
                         <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="6" Label="Source2" />
                         <Edge From="4" To="5" Label="Source1" />
-                        <Edge From="5" To="21" Label="Source1" />
-                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="25" Label="Source1" />
                         <Edge From="7" To="8" Label="Source1" />
-                        <Edge From="7" To="10" Label="Source2" />
                         <Edge From="8" To="9" Label="Source1" />
                         <Edge From="9" To="10" Label="Source1" />
-                        <Edge From="10" To="21" Label="Source2" />
+                        <Edge From="9" To="12" Label="Source2" />
+                        <Edge From="10" To="11" Label="Source1" />
                         <Edge From="11" To="12" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source1" />
-                        <Edge From="12" To="15" Label="Source2" />
+                        <Edge From="12" To="25" Label="Source2" />
                         <Edge From="13" To="14" Label="Source1" />
                         <Edge From="14" To="15" Label="Source1" />
-                        <Edge From="15" To="21" Label="Source3" />
+                        <Edge From="15" To="16" Label="Source1" />
+                        <Edge From="15" To="18" Label="Source2" />
                         <Edge From="16" To="17" Label="Source1" />
                         <Edge From="17" To="18" Label="Source1" />
-                        <Edge From="17" To="20" Label="Source2" />
-                        <Edge From="18" To="19" Label="Source1" />
+                        <Edge From="18" To="25" Label="Source3" />
                         <Edge From="19" To="20" Label="Source1" />
-                        <Edge From="20" To="21" Label="Source4" />
+                        <Edge From="20" To="21" Label="Source1" />
                         <Edge From="21" To="22" Label="Source1" />
+                        <Edge From="21" To="24" Label="Source2" />
+                        <Edge From="22" To="23" Label="Source1" />
+                        <Edge From="23" To="24" Label="Source1" />
+                        <Edge From="24" To="25" Label="Source4" />
+                        <Edge From="25" To="26" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -8346,6 +7839,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>29</Value>
                           </Combinator>
@@ -8378,6 +7878,13 @@ def process(value):
                               <Edge From="1" To="2" Label="Source1" />
                             </Edges>
                           </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0.2</al:string>
+                            </al:SourceName>
+                          </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
@@ -8414,6 +7921,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0.8</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>31</Value>
                           </Combinator>
@@ -8448,6 +7962,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer1</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>32</Value>
                           </Combinator>
@@ -8468,34 +7989,38 @@ def process(value):
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="0" To="6" Label="Source1" />
-                        <Edge From="0" To="11" Label="Source1" />
-                        <Edge From="0" To="16" Label="Source1" />
+                        <Edge From="0" To="7" Label="Source1" />
+                        <Edge From="0" To="13" Label="Source1" />
+                        <Edge From="0" To="19" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="2" To="5" Label="Source2" />
                         <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="6" Label="Source2" />
                         <Edge From="4" To="5" Label="Source1" />
-                        <Edge From="5" To="21" Label="Source1" />
-                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="25" Label="Source1" />
                         <Edge From="7" To="8" Label="Source1" />
-                        <Edge From="7" To="10" Label="Source2" />
                         <Edge From="8" To="9" Label="Source1" />
                         <Edge From="9" To="10" Label="Source1" />
-                        <Edge From="10" To="21" Label="Source2" />
+                        <Edge From="9" To="12" Label="Source2" />
+                        <Edge From="10" To="11" Label="Source1" />
                         <Edge From="11" To="12" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source1" />
-                        <Edge From="12" To="15" Label="Source2" />
+                        <Edge From="12" To="25" Label="Source2" />
                         <Edge From="13" To="14" Label="Source1" />
                         <Edge From="14" To="15" Label="Source1" />
-                        <Edge From="15" To="21" Label="Source3" />
+                        <Edge From="15" To="16" Label="Source1" />
+                        <Edge From="15" To="18" Label="Source2" />
                         <Edge From="16" To="17" Label="Source1" />
                         <Edge From="17" To="18" Label="Source1" />
-                        <Edge From="17" To="20" Label="Source2" />
-                        <Edge From="18" To="19" Label="Source1" />
+                        <Edge From="18" To="25" Label="Source3" />
                         <Edge From="19" To="20" Label="Source1" />
-                        <Edge From="20" To="21" Label="Source4" />
+                        <Edge From="20" To="21" Label="Source1" />
                         <Edge From="21" To="22" Label="Source1" />
+                        <Edge From="21" To="24" Label="Source2" />
+                        <Edge From="22" To="23" Label="Source1" />
+                        <Edge From="23" To="24" Label="Source1" />
+                        <Edge From="24" To="25" Label="Source4" />
+                        <Edge From="25" To="26" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -9025,6 +8550,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>41</Value>
                           </Combinator>
@@ -9057,6 +8589,13 @@ def process(value):
                               <Edge From="1" To="2" Label="Source1" />
                             </Edges>
                           </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0.2</al:string>
+                            </al:SourceName>
+                          </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
@@ -9093,6 +8632,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0.8</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>43</Value>
                           </Combinator>
@@ -9127,6 +8673,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer1</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>44</Value>
                           </Combinator>
@@ -9147,34 +8700,38 @@ def process(value):
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="0" To="6" Label="Source1" />
-                        <Edge From="0" To="11" Label="Source1" />
-                        <Edge From="0" To="16" Label="Source1" />
+                        <Edge From="0" To="7" Label="Source1" />
+                        <Edge From="0" To="13" Label="Source1" />
+                        <Edge From="0" To="19" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="2" To="5" Label="Source2" />
                         <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="6" Label="Source2" />
                         <Edge From="4" To="5" Label="Source1" />
-                        <Edge From="5" To="21" Label="Source1" />
-                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="25" Label="Source1" />
                         <Edge From="7" To="8" Label="Source1" />
-                        <Edge From="7" To="10" Label="Source2" />
                         <Edge From="8" To="9" Label="Source1" />
                         <Edge From="9" To="10" Label="Source1" />
-                        <Edge From="10" To="21" Label="Source2" />
+                        <Edge From="9" To="12" Label="Source2" />
+                        <Edge From="10" To="11" Label="Source1" />
                         <Edge From="11" To="12" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source1" />
-                        <Edge From="12" To="15" Label="Source2" />
+                        <Edge From="12" To="25" Label="Source2" />
                         <Edge From="13" To="14" Label="Source1" />
                         <Edge From="14" To="15" Label="Source1" />
-                        <Edge From="15" To="21" Label="Source3" />
+                        <Edge From="15" To="16" Label="Source1" />
+                        <Edge From="15" To="18" Label="Source2" />
                         <Edge From="16" To="17" Label="Source1" />
                         <Edge From="17" To="18" Label="Source1" />
-                        <Edge From="17" To="20" Label="Source2" />
-                        <Edge From="18" To="19" Label="Source1" />
+                        <Edge From="18" To="25" Label="Source3" />
                         <Edge From="19" To="20" Label="Source1" />
-                        <Edge From="20" To="21" Label="Source4" />
+                        <Edge From="20" To="21" Label="Source1" />
                         <Edge From="21" To="22" Label="Source1" />
+                        <Edge From="21" To="24" Label="Source2" />
+                        <Edge From="22" To="23" Label="Source1" />
+                        <Edge From="23" To="24" Label="Source1" />
+                        <Edge From="24" To="25" Label="Source4" />
+                        <Edge From="25" To="26" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -9704,6 +9261,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>53</Value>
                           </Combinator>
@@ -9736,6 +9300,13 @@ def process(value):
                               <Edge From="1" To="2" Label="Source1" />
                             </Edges>
                           </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0.2</al:string>
+                            </al:SourceName>
+                          </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
@@ -9772,6 +9343,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer0.8</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>55</Value>
                           </Combinator>
@@ -9806,6 +9384,13 @@ def process(value):
                           </Workflow>
                         </Expression>
                         <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="al:PlaySource">
+                            <al:SourceName>
+                              <al:string>Offer1</al:string>
+                            </al:SourceName>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
                           <Combinator xsi:type="IntProperty">
                             <Value>56</Value>
                           </Combinator>
@@ -9826,34 +9411,38 @@ def process(value):
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="0" To="6" Label="Source1" />
-                        <Edge From="0" To="11" Label="Source1" />
-                        <Edge From="0" To="16" Label="Source1" />
+                        <Edge From="0" To="7" Label="Source1" />
+                        <Edge From="0" To="13" Label="Source1" />
+                        <Edge From="0" To="19" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="2" To="5" Label="Source2" />
                         <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="6" Label="Source2" />
                         <Edge From="4" To="5" Label="Source1" />
-                        <Edge From="5" To="21" Label="Source1" />
-                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="25" Label="Source1" />
                         <Edge From="7" To="8" Label="Source1" />
-                        <Edge From="7" To="10" Label="Source2" />
                         <Edge From="8" To="9" Label="Source1" />
                         <Edge From="9" To="10" Label="Source1" />
-                        <Edge From="10" To="21" Label="Source2" />
+                        <Edge From="9" To="12" Label="Source2" />
+                        <Edge From="10" To="11" Label="Source1" />
                         <Edge From="11" To="12" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source1" />
-                        <Edge From="12" To="15" Label="Source2" />
+                        <Edge From="12" To="25" Label="Source2" />
                         <Edge From="13" To="14" Label="Source1" />
                         <Edge From="14" To="15" Label="Source1" />
-                        <Edge From="15" To="21" Label="Source3" />
+                        <Edge From="15" To="16" Label="Source1" />
+                        <Edge From="15" To="18" Label="Source2" />
                         <Edge From="16" To="17" Label="Source1" />
                         <Edge From="17" To="18" Label="Source1" />
-                        <Edge From="17" To="20" Label="Source2" />
-                        <Edge From="18" To="19" Label="Source1" />
+                        <Edge From="18" To="25" Label="Source3" />
                         <Edge From="19" To="20" Label="Source1" />
-                        <Edge From="20" To="21" Label="Source4" />
+                        <Edge From="20" To="21" Label="Source1" />
                         <Edge From="21" To="22" Label="Source1" />
+                        <Edge From="21" To="24" Label="Source2" />
+                        <Edge From="22" To="23" Label="Source1" />
+                        <Edge From="23" To="24" Label="Source1" />
+                        <Edge From="24" To="25" Label="Source4" />
+                        <Edge From="25" To="26" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -10117,7 +9706,7 @@ def process(value):
               <Combinator xsi:type="rx:Merge" />
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>rr_data\RR_TESTING_.csv</io:FileName>
+              <io:FileName>rr_data\RR_Dayp134_epoch-8_ID-RRM001_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -10136,41 +9725,150 @@ def process(value):
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:FP3001">
+            <npm:Index>0</npm:Index>
+            <npm:Regions>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>510.5</npm:X>
+                  <npm:Y>623</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>211</npm:Width>
+                  <npm:Height>202</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>268.5</npm:X>
+                  <npm:Y>761</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>211</npm:Width>
+                  <npm:Height>200</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>1483.5</npm:X>
+                  <npm:Y>645.5</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>191</npm:Width>
+                  <npm:Height>181</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>1716</npm:X>
+                  <npm:Y>745.5</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>190</npm:Width>
+                  <npm:Height>181</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+            </npm:Regions>
+            <npm:TriggerMode>Trigger2</npm:TriggerMode>
+            <npm:ExposureTime>15.998</npm:ExposureTime>
+            <npm:AutoCrop>true</npm:AutoCrop>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FP_Dayp2_epoch-7_ID-A2A18DRV_.csv</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Timestamp" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>rr_data_FP\FPTS_Dayp259_epoch-7_ID-A2A18DRV_.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+        </Builder>
+      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="npm:FP3001">
           <npm:Index>0</npm:Index>
           <npm:Regions>
             <npm:RotatedRect>
               <npm:Center>
-                <npm:X>1396.5</npm:X>
-                <npm:Y>863</npm:Y>
+                <npm:X>447.5</npm:X>
+                <npm:Y>671</npm:Y>
               </npm:Center>
               <npm:Size>
-                <npm:Width>221</npm:Width>
-                <npm:Height>208</npm:Height>
+                <npm:Width>83</npm:Width>
+                <npm:Height>98</npm:Height>
               </npm:Size>
               <npm:Angle>0</npm:Angle>
             </npm:RotatedRect>
             <npm:RotatedRect>
               <npm:Center>
-                <npm:X>465.5</npm:X>
-                <npm:Y>732</npm:Y>
+                <npm:X>295.5</npm:X>
+                <npm:Y>746</npm:Y>
               </npm:Center>
               <npm:Size>
-                <npm:Width>211</npm:Width>
-                <npm:Height>200</npm:Height>
+                <npm:Width>83</npm:Width>
+                <npm:Height>94</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>1508.5</npm:X>
+                <npm:Y>677.5</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>99</npm:Width>
+                <npm:Height>105</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>1699</npm:X>
+                <npm:Y>750.5</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>84</npm:Width>
+                <npm:Height>97</npm:Height>
               </npm:Size>
               <npm:Angle>0</npm:Angle>
             </npm:RotatedRect>
           </npm:Regions>
-          <npm:TriggerMode>Trigger2</npm:TriggerMode>
-          <npm:ExposureTime>15.998</npm:ExposureTime>
+          <npm:TriggerMode>Trigger3</npm:TriggerMode>
+          <npm:ExposureTime>20</npm:ExposureTime>
           <npm:AutoCrop>true</npm:AutoCrop>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="npm:PhotometryWriter">
-          <npm:FileName>rr_data_FP\FP_Day033_epoch-5_ID-A2A18DRV_FP-LH_.csv</npm:FileName>
+          <npm:FileName>rr_data_FP\FP_Dayp134_epoch-8_ID-RRM001_.csv</npm:FileName>
           <npm:Suffix>Timestamp</npm:Suffix>
           <npm:Buffered>true</npm:Buffered>
           <npm:Overwrite>false</npm:Overwrite>
@@ -10185,11 +9883,56 @@ def process(value):
         <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>rr_data_FP\FPTS_Day033_epoch-5_ID-A2A18DRV_FP-LH_.csv</io:FileName>
+        <io:FileName>rr_data_FP\FPTS_Dayp134_epoch-8_ID-RRM001_.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>Timestamp</io:Suffix>
         <io:IncludeHeader>false</io:IncludeHeader>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryData">
+          <npm:Filter>L410</npm:Filter>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryWriter">
+          <npm:FileName>rr_data_FP\FP_415.csv</npm:FileName>
+          <npm:Suffix>Timestamp</npm:Suffix>
+          <npm:Buffered>true</npm:Buffered>
+          <npm:Overwrite>false</npm:Overwrite>
+          <npm:IncludeRegions>false</npm:IncludeRegions>
+          <npm:IncludeChart>false</npm:IncludeChart>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryData">
+          <npm:Filter>L470</npm:Filter>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryWriter">
+          <npm:FileName>rr_data_FP\FP_470.csv</npm:FileName>
+          <npm:Suffix>Timestamp</npm:Suffix>
+          <npm:Buffered>true</npm:Buffered>
+          <npm:Overwrite>false</npm:Overwrite>
+          <npm:IncludeRegions>false</npm:IncludeRegions>
+          <npm:IncludeChart>false</npm:IncludeChart>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryData">
+          <npm:Filter>L560</npm:Filter>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryWriter">
+          <npm:FileName>rr_data_FP\FP_560.csv</npm:FileName>
+          <npm:Suffix>Timestamp</npm:Suffix>
+          <npm:Buffered>true</npm:Buffered>
+          <npm:Overwrite>false</npm:Overwrite>
+          <npm:IncludeRegions>false</npm:IncludeRegions>
+          <npm:IncludeChart>false</npm:IncludeChart>
+        </Combinator>
       </Expression>
     </Nodes>
     <Edges>
@@ -10401,28 +10144,28 @@ def process(value):
       <Edge From="192" To="207" Label="Source1" />
       <Edge From="192" To="214" Label="Source1" />
       <Edge From="193" To="194" Label="Source1" />
-      <Edge From="193" To="195" Label="Source1" />
-      <Edge From="193" To="197" Label="Source1" />
-      <Edge From="195" To="196" Label="Source1" />
-      <Edge From="197" To="198" Label="Source1" />
+      <Edge From="193" To="198" Label="Source1" />
+      <Edge From="194" To="195" Label="Source1" />
+      <Edge From="194" To="196" Label="Source1" />
+      <Edge From="196" To="197" Label="Source1" />
       <Edge From="198" To="199" Label="Source1" />
       <Edge From="200" To="201" Label="Source1" />
-      <Edge From="200" To="202" Label="Source1" />
-      <Edge From="200" To="204" Label="Source1" />
-      <Edge From="202" To="203" Label="Source1" />
-      <Edge From="204" To="205" Label="Source1" />
+      <Edge From="200" To="205" Label="Source1" />
+      <Edge From="201" To="202" Label="Source1" />
+      <Edge From="201" To="203" Label="Source1" />
+      <Edge From="203" To="204" Label="Source1" />
       <Edge From="205" To="206" Label="Source1" />
       <Edge From="207" To="208" Label="Source1" />
-      <Edge From="207" To="209" Label="Source1" />
-      <Edge From="207" To="211" Label="Source1" />
-      <Edge From="209" To="210" Label="Source1" />
-      <Edge From="211" To="212" Label="Source1" />
+      <Edge From="207" To="212" Label="Source1" />
+      <Edge From="208" To="209" Label="Source1" />
+      <Edge From="208" To="210" Label="Source1" />
+      <Edge From="210" To="211" Label="Source1" />
       <Edge From="212" To="213" Label="Source1" />
       <Edge From="214" To="215" Label="Source1" />
-      <Edge From="214" To="216" Label="Source1" />
-      <Edge From="214" To="218" Label="Source1" />
-      <Edge From="216" To="217" Label="Source1" />
-      <Edge From="218" To="219" Label="Source1" />
+      <Edge From="214" To="219" Label="Source1" />
+      <Edge From="215" To="216" Label="Source1" />
+      <Edge From="215" To="217" Label="Source1" />
+      <Edge From="217" To="218" Label="Source1" />
       <Edge From="219" To="220" Label="Source1" />
       <Edge From="221" To="222" Label="Source1" />
       <Edge From="222" To="223" Label="Source1" />
@@ -10501,6 +10244,16 @@ def process(value):
       <Edge From="301" To="302" Label="Source1" />
       <Edge From="302" To="303" Label="Source1" />
       <Edge From="303" To="304" Label="Source1" />
+      <Edge From="305" To="306" Label="Source1" />
+      <Edge From="305" To="310" Label="Source1" />
+      <Edge From="305" To="312" Label="Source1" />
+      <Edge From="305" To="314" Label="Source1" />
+      <Edge From="306" To="307" Label="Source1" />
+      <Edge From="307" To="308" Label="Source1" />
+      <Edge From="308" To="309" Label="Source1" />
+      <Edge From="310" To="311" Label="Source1" />
+      <Edge From="312" To="313" Label="Source1" />
+      <Edge From="314" To="315" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

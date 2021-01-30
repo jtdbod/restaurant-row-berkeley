@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.5.0"
+<WorkflowBuilder Version="2.5.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:p1="clr-namespace:Bonsai.PointGrey;assembly=Bonsai.PointGrey"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
@@ -7,7 +7,7 @@
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
-                 xmlns:mx="clr-namespace:Bonsai.DAQmx;assembly=Bonsai.DAQmx"
+                 xmlns:p2="clr-namespace:Bonsai.NationalInstruments;assembly=Bonsai.NationalInstruments"
                  xmlns:npm="clr-namespace:Neurophotometrics;assembly=Neurophotometrics"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -594,14 +594,23 @@
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="Combinator">
-          <Combinator xsi:type="mx:AnalogInput">
-            <mx:SignalSource />
-            <mx:SampleRate>0</mx:SampleRate>
-            <mx:ActiveEdge>Rising</mx:ActiveEdge>
-            <mx:SampleMode>ContinuousSamples</mx:SampleMode>
-            <mx:BufferSize>1000</mx:BufferSize>
-            <mx:SamplesPerRead>-1</mx:SamplesPerRead>
-            <mx:Channels />
+          <Combinator xsi:type="p2:AnalogInput">
+            <p2:SignalSource />
+            <p2:SampleRate>0</p2:SampleRate>
+            <p2:ActiveEdge>Rising</p2:ActiveEdge>
+            <p2:QuantityMode>ContinuousSamples</p2:QuantityMode>
+            <p2:BufferSize>1000</p2:BufferSize>
+            <p2:SamplesPerRead>-1</p2:SamplesPerRead>
+            <p2:Channels>
+              <p2:AnalogInputChannelConfiguration>
+                <p2:ChannelName />
+                <p2:MinimumValue>-10</p2:MinimumValue>
+                <p2:MaximumValue>10</p2:MaximumValue>
+                <p2:PhysicalChannel>Dev1/ai0</p2:PhysicalChannel>
+                <p2:TerminalConfiguration>Differential</p2:TerminalConfiguration>
+                <p2:VoltageUnits>Volts</p2:VoltageUnits>
+              </p2:AnalogInputChannelConfiguration>
+            </p2:Channels>
           </Combinator>
         </Builder>
       </Expression>
@@ -635,25 +644,71 @@
           </Combinator>
         </Builder>
       </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:FP3001">
+            <npm:Index>0</npm:Index>
+            <npm:Regions>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>1396.5</npm:X>
+                  <npm:Y>863</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>221</npm:Width>
+                  <npm:Height>208</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>465.5</npm:X>
+                  <npm:Y>732</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>211</npm:Width>
+                  <npm:Height>200</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+            </npm:Regions>
+            <npm:TriggerMode>Trigger3</npm:TriggerMode>
+            <npm:ExposureTime>20</npm:ExposureTime>
+            <npm:AutoCrop>false</npm:AutoCrop>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FPD005_3sec_80Rwd20NoRwd_A2A-16B-2-RV</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
+      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="npm:FP3001">
           <npm:Index>0</npm:Index>
           <npm:Regions>
             <npm:RotatedRect>
               <npm:Center>
-                <npm:X>1396.5</npm:X>
-                <npm:Y>863</npm:Y>
+                <npm:X>490.5</npm:X>
+                <npm:Y>610</npm:Y>
               </npm:Center>
               <npm:Size>
-                <npm:Width>221</npm:Width>
-                <npm:Height>208</npm:Height>
+                <npm:Width>211</npm:Width>
+                <npm:Height>202</npm:Height>
               </npm:Size>
               <npm:Angle>0</npm:Angle>
             </npm:RotatedRect>
             <npm:RotatedRect>
               <npm:Center>
-                <npm:X>465.5</npm:X>
-                <npm:Y>732</npm:Y>
+                <npm:X>263.5</npm:X>
+                <npm:Y>739</npm:Y>
               </npm:Center>
               <npm:Size>
                 <npm:Width>211</npm:Width>
@@ -661,21 +716,111 @@
               </npm:Size>
               <npm:Angle>0</npm:Angle>
             </npm:RotatedRect>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>1483.5</npm:X>
+                <npm:Y>631.5</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>191</npm:Width>
+                <npm:Height>181</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
+            <npm:RotatedRect>
+              <npm:Center>
+                <npm:X>1682</npm:X>
+                <npm:Y>714.5</npm:Y>
+              </npm:Center>
+              <npm:Size>
+                <npm:Width>190</npm:Width>
+                <npm:Height>181</npm:Height>
+              </npm:Size>
+              <npm:Angle>0</npm:Angle>
+            </npm:RotatedRect>
           </npm:Regions>
-          <npm:TriggerMode>Trigger2</npm:TriggerMode>
-          <npm:ExposureTime>24</npm:ExposureTime>
-          <npm:AutoCrop>false</npm:AutoCrop>
+          <npm:TriggerMode>Trigger3</npm:TriggerMode>
+          <npm:ExposureTime>20</npm:ExposureTime>
+          <npm:AutoCrop>true</npm:AutoCrop>
         </Combinator>
       </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FP_RR_Dayp126_epoch-8_ID-RRM002_.csv</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
+      </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="npm:PhotometryWriter">
-          <npm:FileName>rr_data_FP\FPD005_3sec_80Rwd20NoRwd_A2A-16B-2-RV</npm:FileName>
-          <npm:Suffix>Timestamp</npm:Suffix>
-          <npm:Buffered>true</npm:Buffered>
-          <npm:Overwrite>false</npm:Overwrite>
-          <npm:IncludeRegions>false</npm:IncludeRegions>
-          <npm:IncludeChart>false</npm:IncludeChart>
+        <Combinator xsi:type="rx:Timestamp" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>rr_data_FP\FPTS_RR_Dayp126_epoch-8_ID-RRM002_.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryData">
+          <npm:Filter>L410</npm:Filter>
         </Combinator>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FP_415</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryData">
+          <npm:Filter>L470</npm:Filter>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FP_470</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="npm:PhotometryData">
+          <npm:Filter>L560</npm:Filter>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FP_560</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
       </Expression>
     </Nodes>
     <Edges>
@@ -716,6 +861,16 @@
       <Edge From="30" To="31" Label="Source1" />
       <Edge From="31" To="32" Label="Source1" />
       <Edge From="34" To="35" Label="Source1" />
+      <Edge From="36" To="37" Label="Source1" />
+      <Edge From="36" To="41" Label="Source1" />
+      <Edge From="36" To="43" Label="Source1" />
+      <Edge From="36" To="45" Label="Source1" />
+      <Edge From="37" To="38" Label="Source1" />
+      <Edge From="38" To="39" Label="Source1" />
+      <Edge From="39" To="40" Label="Source1" />
+      <Edge From="41" To="42" Label="Source1" />
+      <Edge From="43" To="44" Label="Source1" />
+      <Edge From="45" To="46" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

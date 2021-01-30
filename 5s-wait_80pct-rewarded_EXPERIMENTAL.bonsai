@@ -4446,7 +4446,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -4968,7 +4968,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -5491,7 +5491,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -6014,7 +6014,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Condition">
@@ -10116,8 +10116,14 @@ def process(value):
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Merge" />
             </Expression>
+            <Expression xsi:type="SubscribeSubject" />
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="FileName" />
+              </PropertyMappings>
+            </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>rr_data\RR_TESTING_.csv</io:FileName>
+              <io:FileName>rr_data\RR_Day06_epoch-4_RRM002_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -10132,7 +10138,9 @@ def process(value):
             <Edge From="3" To="6" Label="Source5" />
             <Edge From="4" To="6" Label="Source6" />
             <Edge From="5" To="6" Label="Source1" />
-            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="6" To="9" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="9" Label="Source2" />
           </Edges>
         </Workflow>
       </Expression>
@@ -10190,6 +10198,17 @@ def process(value):
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>Timestamp</io:Suffix>
         <io:IncludeHeader>false</io:IncludeHeader>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="io:GetFileName" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="StringProperty">
+          <Value>rr_data\RR_Day06_epoch-4_RRM002_.csv</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="PublishSubject">
+        <Name>FileName</Name>
       </Expression>
     </Nodes>
     <Edges>
@@ -10501,6 +10520,8 @@ def process(value):
       <Edge From="301" To="302" Label="Source1" />
       <Edge From="302" To="303" Label="Source1" />
       <Edge From="303" To="304" Label="Source1" />
+      <Edge From="305" To="306" Label="Source1" />
+      <Edge From="306" To="307" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

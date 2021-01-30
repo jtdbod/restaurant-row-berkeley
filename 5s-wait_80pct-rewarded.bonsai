@@ -519,20 +519,20 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>395</cv:X>
-                      <cv:Y>253</cv:Y>
+                      <cv:X>402</cv:X>
+                      <cv:Y>275</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>395</cv:X>
-                      <cv:Y>241</cv:Y>
+                      <cv:X>402</cv:X>
+                      <cv:Y>263</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>443</cv:X>
-                      <cv:Y>241</cv:Y>
+                      <cv:X>450</cv:X>
+                      <cv:Y>263</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>444</cv:X>
-                      <cv:Y>252</cv:Y>
+                      <cv:X>451</cv:X>
+                      <cv:Y>274</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -560,24 +560,28 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>0</cv:X>
+                      <cv:X>47</cv:X>
+                      <cv:Y>1</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>1</cv:X>
                       <cv:Y>0</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>49</cv:X>
-                      <cv:Y>0</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>49</cv:X>
-                      <cv:Y>11</cv:Y>
+                      <cv:X>2</cv:X>
+                      <cv:Y>12</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>23</cv:X>
                       <cv:Y>12</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>0</cv:X>
-                      <cv:Y>12</cv:Y>
+                      <cv:X>23</cv:X>
+                      <cv:Y>11</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>49</cv:X>
+                      <cv:Y>11</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -1122,32 +1126,32 @@
                       <cv:Y>219</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>330</cv:X>
-                      <cv:Y>102</cv:Y>
+                      <cv:X>343</cv:X>
+                      <cv:Y>100</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>393</cv:X>
-                      <cv:Y>102</cv:Y>
+                      <cv:X>403</cv:X>
+                      <cv:Y>103</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>388</cv:X>
-                      <cv:Y>156</cv:Y>
+                      <cv:X>397</cv:X>
+                      <cv:Y>151</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>398</cv:X>
-                      <cv:Y>162</cv:Y>
+                      <cv:X>407</cv:X>
+                      <cv:Y>152</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>399</cv:X>
-                      <cv:Y>180</cv:Y>
+                      <cv:X>408</cv:X>
+                      <cv:Y>176</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>411</cv:X>
-                      <cv:Y>190</cv:Y>
+                      <cv:X>420</cv:X>
+                      <cv:Y>179</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>474</cv:X>
-                      <cv:Y>187</cv:Y>
+                      <cv:X>470</cv:X>
+                      <cv:Y>184</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>591</cv:X>
@@ -1187,47 +1191,47 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>1</cv:X>
+                      <cv:X>9</cv:X>
                       <cv:Y>1</cv:Y>
                     </cv:Point>
                     <cv:Point>
+                      <cv:X>66</cv:X>
+                      <cv:Y>5</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
                       <cv:X>63</cv:X>
-                      <cv:Y>0</cv:Y>
+                      <cv:Y>17</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>61</cv:X>
-                      <cv:Y>16</cv:Y>
+                      <cv:Y>40</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>58</cv:X>
-                      <cv:Y>43</cv:Y>
+                      <cv:X>60</cv:X>
+                      <cv:Y>53</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>57</cv:X>
-                      <cv:Y>55</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>68</cv:X>
-                      <cv:Y>60</cv:Y>
+                      <cv:X>69</cv:X>
+                      <cv:Y>54</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>70</cv:X>
                       <cv:Y>79</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>80</cv:X>
-                      <cv:Y>89</cv:Y>
+                      <cv:X>81</cv:X>
+                      <cv:Y>81</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>133</cv:X>
                       <cv:Y>86</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>261</cv:X>
-                      <cv:Y>89</cv:Y>
+                      <cv:X>254</cv:X>
+                      <cv:Y>92</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>261</cv:X>
+                      <cv:X>252</cv:X>
                       <cv:Y>150</cv:Y>
                     </cv:Point>
                     <cv:Point>
@@ -1235,8 +1239,8 @@
                       <cv:Y>117</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>6</cv:X>
-                      <cv:Y>117</cv:Y>
+                      <cv:X>3</cv:X>
+                      <cv:Y>118</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -1575,20 +1579,20 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>402</cv:X>
-                      <cv:Y>223</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>400</cv:X>
-                      <cv:Y>184</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>409</cv:X>
-                      <cv:Y>186</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>414</cv:X>
+                      <cv:X>426</cv:X>
                       <cv:Y>224</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>424</cv:X>
+                      <cv:Y>185</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>433</cv:X>
+                      <cv:Y>187</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>438</cv:X>
+                      <cv:Y>225</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -1606,7 +1610,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:Threshold">
-                <cv:ThresholdValue>135</cv:ThresholdValue>
+                <cv:ThresholdValue>100</cv:ThresholdValue>
                 <cv:MaxValue>255</cv:MaxValue>
                 <cv:ThresholdType>BinaryInv</cv:ThresholdType>
               </Combinator>
@@ -1616,20 +1620,20 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>0</cv:X>
-                      <cv:Y>1</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>10</cv:X>
-                      <cv:Y>2</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>14</cv:X>
-                      <cv:Y>40</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
                       <cv:X>2</cv:X>
-                      <cv:Y>40</cv:Y>
+                      <cv:Y>3</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>9</cv:X>
+                      <cv:Y>5</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>12</cv:X>
+                      <cv:Y>38</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>3</cv:X>
+                      <cv:Y>34</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -1735,24 +1739,36 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>5</cv:X>
-                      <cv:Y>66</cv:Y>
+                      <cv:X>7</cv:X>
+                      <cv:Y>68</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>0</cv:X>
-                      <cv:Y>0</cv:Y>
+                      <cv:X>2</cv:X>
+                      <cv:Y>2</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>58</cv:X>
-                      <cv:Y>1</cv:Y>
+                      <cv:X>68</cv:X>
+                      <cv:Y>2</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>58</cv:X>
-                      <cv:Y>49</cv:Y>
+                      <cv:X>60</cv:X>
+                      <cv:Y>12</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>69</cv:X>
-                      <cv:Y>66</cv:Y>
+                      <cv:X>61</cv:X>
+                      <cv:Y>31</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>62</cv:X>
+                      <cv:Y>47</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>70</cv:X>
+                      <cv:Y>46</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>71</cv:X>
+                      <cv:Y>68</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -2290,20 +2306,20 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>375</cv:X>
-                      <cv:Y>247</cv:Y>
+                      <cv:X>372</cv:X>
+                      <cv:Y>226</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>334</cv:X>
-                      <cv:Y>246</cv:Y>
+                      <cv:X>331</cv:X>
+                      <cv:Y>225</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>335</cv:X>
-                      <cv:Y>233</cv:Y>
+                      <cv:X>332</cv:X>
+                      <cv:Y>212</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>375</cv:X>
-                      <cv:Y>234</cv:Y>
+                      <cv:X>372</cv:X>
+                      <cv:Y>213</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -2321,7 +2337,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:Threshold">
-                <cv:ThresholdValue>98</cv:ThresholdValue>
+                <cv:ThresholdValue>70</cv:ThresholdValue>
                 <cv:MaxValue>255</cv:MaxValue>
                 <cv:ThresholdType>BinaryInv</cv:ThresholdType>
               </Combinator>
@@ -2331,28 +2347,28 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>1</cv:X>
-                      <cv:Y>0</cv:Y>
+                      <cv:X>4</cv:X>
+                      <cv:Y>2</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>21</cv:X>
-                      <cv:Y>0</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>41</cv:X>
-                      <cv:Y>1</cv:Y>
+                      <cv:X>15</cv:X>
+                      <cv:Y>2</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>41</cv:X>
+                      <cv:Y>2</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>41</cv:X>
                       <cv:Y>14</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>21</cv:X>
-                      <cv:Y>14</cv:Y>
+                      <cv:X>22</cv:X>
+                      <cv:Y>12</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>1</cv:X>
-                      <cv:Y>14</cv:Y>
+                      <cv:X>2</cv:X>
+                      <cv:Y>12</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -2362,7 +2378,7 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:RoiActivityDetected">
                 <cv:Index xsi:nil="true" />
-                <cv:Threshold>10</cv:Threshold>
+                <cv:Threshold>40</cv:Threshold>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2849,44 +2865,44 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>0</cv:X>
-                      <cv:Y>0</cv:Y>
+                      <cv:X>2</cv:X>
+                      <cv:Y>3</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>178</cv:X>
-                      <cv:Y>30</cv:Y>
+                      <cv:Y>32</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>249</cv:X>
-                      <cv:Y>34</cv:Y>
+                      <cv:X>247</cv:X>
+                      <cv:Y>36</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>254</cv:X>
-                      <cv:Y>140</cv:Y>
+                      <cv:X>252</cv:X>
+                      <cv:Y>138</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>191</cv:X>
-                      <cv:Y>143</cv:Y>
+                      <cv:X>196</cv:X>
+                      <cv:Y>138</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>193</cv:X>
-                      <cv:Y>93</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>181</cv:X>
+                      <cv:X>195</cv:X>
                       <cv:Y>91</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>178</cv:X>
-                      <cv:Y>61</cv:Y>
+                      <cv:X>183</cv:X>
+                      <cv:Y>91</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>181</cv:X>
+                      <cv:Y>58</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>120</cv:X>
                       <cv:Y>59</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>0</cv:X>
-                      <cv:Y>58</cv:Y>
+                      <cv:X>3</cv:X>
+                      <cv:Y>57</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -3203,20 +3219,20 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>365</cv:X>
-                      <cv:Y>270</cv:Y>
+                      <cv:X>342</cv:X>
+                      <cv:Y>265</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>360</cv:X>
-                      <cv:Y>235</cv:Y>
+                      <cv:X>356</cv:X>
+                      <cv:Y>265</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>366</cv:X>
-                      <cv:Y>233</cv:Y>
+                      <cv:X>359</cv:X>
+                      <cv:Y>236</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>373</cv:X>
-                      <cv:Y>269</cv:Y>
+                      <cv:X>345</cv:X>
+                      <cv:Y>236</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -3244,50 +3260,30 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>6</cv:X>
-                      <cv:Y>0</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>7</cv:X>
-                      <cv:Y>4</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>13</cv:X>
-                      <cv:Y>36</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>9</cv:X>
-                      <cv:Y>37</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>6</cv:X>
-                      <cv:Y>37</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
                       <cv:X>4</cv:X>
-                      <cv:Y>33</cv:Y>
+                      <cv:Y>2</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>4</cv:X>
-                      <cv:Y>27</cv:Y>
+                      <cv:X>16</cv:X>
+                      <cv:Y>2</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>3</cv:X>
-                      <cv:Y>26</cv:Y>
+                      <cv:X>14</cv:X>
+                      <cv:Y>29</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>0</cv:X>
-                      <cv:Y>3</cv:Y>
+                      <cv:X>1</cv:X>
+                      <cv:Y>28</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
-                <cv:Operation>Avg</cv:Operation>
+                <cv:Operation>Sum</cv:Operation>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:RoiActivityDetected">
                 <cv:Index xsi:nil="true" />
-                <cv:Threshold>10</cv:Threshold>
+                <cv:Threshold>40</cv:Threshold>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -3376,27 +3372,27 @@
                   <cv:ArrayOfPoint>
                     <cv:Point>
                       <cv:X>13</cv:X>
-                      <cv:Y>15</cv:Y>
+                      <cv:Y>20</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>1</cv:X>
-                      <cv:Y>12</cv:Y>
+                      <cv:X>2</cv:X>
+                      <cv:Y>18</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>0</cv:X>
+                      <cv:X>3</cv:X>
                       <cv:Y>2</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>71</cv:X>
-                      <cv:Y>2</cv:Y>
+                      <cv:X>69</cv:X>
+                      <cv:Y>3</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>71</cv:X>
-                      <cv:Y>62</cv:Y>
-                    </cv:Point>
-                    <cv:Point>
-                      <cv:X>11</cv:X>
+                      <cv:X>70</cv:X>
                       <cv:Y>65</cv:Y>
+                    </cv:Point>
+                    <cv:Point>
+                      <cv:X>12</cv:X>
+                      <cv:Y>71</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -10121,7 +10117,7 @@ def process(value):
               <Combinator xsi:type="rx:Merge" />
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>rr_data\RR_Day020_epoch-4_ID-A2A18DTT_.csv</io:FileName>
+              <io:FileName>rr_data\RR_Day009_epoch-4_RRM001_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -10174,7 +10170,7 @@ def process(value):
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="npm:PhotometryWriter">
-          <npm:FileName>C:\Users\linda\Documents\Restaurant Row\rr_data\FPD012_3sec_80Rwd20NoRwd_A2A-16B-2-LV_.csv</npm:FileName>
+          <npm:FileName>rr_data_FP\FP_Day033_epoch-5_ID-A2A18DRV_FP-LH_.csv</npm:FileName>
           <npm:Suffix>Timestamp</npm:Suffix>
           <npm:Buffered>true</npm:Buffered>
           <npm:Overwrite>false</npm:Overwrite>
@@ -10189,7 +10185,7 @@ def process(value):
         <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>rr_data_FP\FPTS_D012_3sec_80Rwd20NoRwd_A2A-16B-2-LV_.csv</io:FileName>
+        <io:FileName>rr_data_FP\FPTS_Day033_epoch-5_ID-A2A18DRV_FP-LH_.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>Timestamp</io:Suffix>
