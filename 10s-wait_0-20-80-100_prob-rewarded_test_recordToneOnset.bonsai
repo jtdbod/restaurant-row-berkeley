@@ -2565,12 +2565,12 @@
                 <cv:Regions>
                   <cv:ArrayOfPoint>
                     <cv:Point>
-                      <cv:X>1</cv:X>
-                      <cv:Y>18</cv:Y>
+                      <cv:X>3</cv:X>
+                      <cv:Y>17</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>1</cv:X>
-                      <cv:Y>6</cv:Y>
+                      <cv:X>3</cv:X>
+                      <cv:Y>11</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>20</cv:X>
@@ -2585,16 +2585,16 @@
                       <cv:Y>14</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>93</cv:X>
-                      <cv:Y>0</cv:Y>
+                      <cv:X>90</cv:X>
+                      <cv:Y>5</cv:Y>
                     </cv:Point>
                     <cv:Point>
-                      <cv:X>97</cv:X>
-                      <cv:Y>74</cv:Y>
+                      <cv:X>95</cv:X>
+                      <cv:Y>72</cv:Y>
                     </cv:Point>
                     <cv:Point>
                       <cv:X>4</cv:X>
-                      <cv:Y>74</cv:Y>
+                      <cv:Y>71</cv:Y>
                     </cv:Point>
                   </cv:ArrayOfPoint>
                 </cv:Regions>
@@ -2604,7 +2604,7 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:RoiActivityDetected">
                 <cv:Index xsi:nil="true" />
-                <cv:Threshold>9</cv:Threshold>
+                <cv:Threshold>8</cv:Threshold>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -9706,7 +9706,7 @@ def process(value):
               <Combinator xsi:type="rx:Merge" />
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>rr_data\RR_Dayp134_epoch-8_ID-RRM001_.csv</io:FileName>
+              <io:FileName>rr_data\RR_Dayp140_epoch-8_ID-RRM002_.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>Timestamp</io:Suffix>
@@ -9812,127 +9812,149 @@ def process(value):
           <io:IncludeHeader>false</io:IncludeHeader>
         </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="npm:FP3001">
-          <npm:Index>0</npm:Index>
-          <npm:Regions>
-            <npm:RotatedRect>
-              <npm:Center>
-                <npm:X>447.5</npm:X>
-                <npm:Y>671</npm:Y>
-              </npm:Center>
-              <npm:Size>
-                <npm:Width>83</npm:Width>
-                <npm:Height>98</npm:Height>
-              </npm:Size>
-              <npm:Angle>0</npm:Angle>
-            </npm:RotatedRect>
-            <npm:RotatedRect>
-              <npm:Center>
-                <npm:X>295.5</npm:X>
-                <npm:Y>746</npm:Y>
-              </npm:Center>
-              <npm:Size>
-                <npm:Width>83</npm:Width>
-                <npm:Height>94</npm:Height>
-              </npm:Size>
-              <npm:Angle>0</npm:Angle>
-            </npm:RotatedRect>
-            <npm:RotatedRect>
-              <npm:Center>
-                <npm:X>1508.5</npm:X>
-                <npm:Y>677.5</npm:Y>
-              </npm:Center>
-              <npm:Size>
-                <npm:Width>99</npm:Width>
-                <npm:Height>105</npm:Height>
-              </npm:Size>
-              <npm:Angle>0</npm:Angle>
-            </npm:RotatedRect>
-            <npm:RotatedRect>
-              <npm:Center>
-                <npm:X>1699</npm:X>
-                <npm:Y>750.5</npm:Y>
-              </npm:Center>
-              <npm:Size>
-                <npm:Width>84</npm:Width>
-                <npm:Height>97</npm:Height>
-              </npm:Size>
-              <npm:Angle>0</npm:Angle>
-            </npm:RotatedRect>
-          </npm:Regions>
-          <npm:TriggerMode>Trigger3</npm:TriggerMode>
-          <npm:ExposureTime>20</npm:ExposureTime>
-          <npm:AutoCrop>true</npm:AutoCrop>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:FP3001">
+            <npm:Index>0</npm:Index>
+            <npm:Regions>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>447.5</npm:X>
+                  <npm:Y>671</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>83</npm:Width>
+                  <npm:Height>98</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>295.5</npm:X>
+                  <npm:Y>746</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>83</npm:Width>
+                  <npm:Height>94</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>1508.5</npm:X>
+                  <npm:Y>677.5</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>99</npm:Width>
+                  <npm:Height>105</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+              <npm:RotatedRect>
+                <npm:Center>
+                  <npm:X>1699</npm:X>
+                  <npm:Y>750.5</npm:Y>
+                </npm:Center>
+                <npm:Size>
+                  <npm:Width>84</npm:Width>
+                  <npm:Height>97</npm:Height>
+                </npm:Size>
+                <npm:Angle>0</npm:Angle>
+              </npm:RotatedRect>
+            </npm:Regions>
+            <npm:TriggerMode>Trigger3</npm:TriggerMode>
+            <npm:ExposureTime>20</npm:ExposureTime>
+            <npm:AutoCrop>true</npm:AutoCrop>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="npm:PhotometryWriter">
-          <npm:FileName>rr_data_FP\FP_Dayp134_epoch-8_ID-RRM001_.csv</npm:FileName>
-          <npm:Suffix>Timestamp</npm:Suffix>
-          <npm:Buffered>true</npm:Buffered>
-          <npm:Overwrite>false</npm:Overwrite>
-          <npm:IncludeRegions>false</npm:IncludeRegions>
-          <npm:IncludeChart>false</npm:IncludeChart>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FP_Dayp134_epoch-8_ID-RRM001_.csv</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Timestamp" />
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Timestamp" />
+        </Builder>
       </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+        </Builder>
       </Expression>
-      <Expression xsi:type="io:CsvWriter">
-        <io:FileName>rr_data_FP\FPTS_Dayp134_epoch-8_ID-RRM001_.csv</io:FileName>
-        <io:Append>false</io:Append>
-        <io:Overwrite>false</io:Overwrite>
-        <io:Suffix>Timestamp</io:Suffix>
-        <io:IncludeHeader>false</io:IncludeHeader>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>rr_data_FP\FPTS_Dayp134_epoch-8_ID-RRM001_.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="npm:PhotometryData">
-          <npm:Filter>L410</npm:Filter>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryData">
+            <npm:Filter>L410</npm:Filter>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="npm:PhotometryWriter">
-          <npm:FileName>rr_data_FP\FP_415.csv</npm:FileName>
-          <npm:Suffix>Timestamp</npm:Suffix>
-          <npm:Buffered>true</npm:Buffered>
-          <npm:Overwrite>false</npm:Overwrite>
-          <npm:IncludeRegions>false</npm:IncludeRegions>
-          <npm:IncludeChart>false</npm:IncludeChart>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FP_415.csv</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="npm:PhotometryData">
-          <npm:Filter>L470</npm:Filter>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryData">
+            <npm:Filter>L470</npm:Filter>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="npm:PhotometryWriter">
-          <npm:FileName>rr_data_FP\FP_470.csv</npm:FileName>
-          <npm:Suffix>Timestamp</npm:Suffix>
-          <npm:Buffered>true</npm:Buffered>
-          <npm:Overwrite>false</npm:Overwrite>
-          <npm:IncludeRegions>false</npm:IncludeRegions>
-          <npm:IncludeChart>false</npm:IncludeChart>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FP_470.csv</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="npm:PhotometryData">
-          <npm:Filter>L560</npm:Filter>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryData">
+            <npm:Filter>L560</npm:Filter>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="npm:PhotometryWriter">
-          <npm:FileName>rr_data_FP\FP_560.csv</npm:FileName>
-          <npm:Suffix>Timestamp</npm:Suffix>
-          <npm:Buffered>true</npm:Buffered>
-          <npm:Overwrite>false</npm:Overwrite>
-          <npm:IncludeRegions>false</npm:IncludeRegions>
-          <npm:IncludeChart>false</npm:IncludeChart>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="npm:PhotometryWriter">
+            <npm:FileName>rr_data_FP\FP_560.csv</npm:FileName>
+            <npm:Suffix>Timestamp</npm:Suffix>
+            <npm:Buffered>true</npm:Buffered>
+            <npm:Overwrite>false</npm:Overwrite>
+            <npm:IncludeRegions>false</npm:IncludeRegions>
+            <npm:IncludeChart>false</npm:IncludeChart>
+          </Combinator>
+        </Builder>
       </Expression>
     </Nodes>
     <Edges>
